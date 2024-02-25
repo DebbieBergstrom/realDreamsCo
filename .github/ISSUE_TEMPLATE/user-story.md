@@ -2,7 +2,7 @@
 name: User Story
 about: Full desciption of user story and tasks to complete it
 title: "[USER STORY]: "
-labels: ''
+labels: user story
 assignees: DebbieBergstrom
 
 ---
