@@ -175,7 +175,8 @@ When using realDreams Co., users can expect the following features and character
 
 ### User Stories
 
-User stories and tasks were put int o six 'epics' and are organized into four distinct sprints (milestones) to establish a well-defined work structure. You can access the details of these milestones by clicking [here](https://github.com/DebbieBergstrom/MILESTOMNE URL), which will take you to the milestone overview.
+User stories and tasks were put int o six 'epics' and are organized into four distinct sprints (milestones) to establish a well-defined work structure. You can access the details of these milestones by clicking [here](https://github.com/DebbieBergstrom/realDreamsCo/milestones), which will take you to the milestone overview.
+![Screenshot of milestone overview](docs/readme/milestones_pp5.png)
 
 #### Epic 1: Viewing & Navigation
 Focuses on providing shoppers with a seamless browsing experience, ensuring they can easily explore and view realDream products and special offers. 
