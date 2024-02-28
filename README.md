@@ -176,7 +176,10 @@ When using realDreams Co., users can expect the following features and character
 ### User Stories
 
 User stories and tasks were put int o six 'epics' and are organized into four distinct sprints (milestones) to establish a well-defined work structure. You can access the details of these milestones by clicking [here](https://github.com/DebbieBergstrom/realDreamsCo/milestones), which will take you to the milestone overview.
-![Screenshot of milestone overview](docs/readme/milestones_pp5.png)
+
+<details><summary>Screenshot of milestone overview</summary>
+<img src="docs/readme/milestones_pp5.png">
+</details>
 
 #### Epic 1: Viewing & Navigation
 Focuses on providing shoppers with a seamless browsing experience, ensuring they can easily explore and view realDream products and special offers. 
@@ -237,39 +240,63 @@ Provides the site's administrators with the tools they need to manage product li
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
-<!--
+
 # Database
 When creating the database structure schema for this project, I utilized the [dbdiagram.io](https://dbdiagram.io/) website. This online tool allowed me to visually design and document the database schema, making it easier to plan and implement the database for the blog application.
 
 <center> 
 
-![Database Schema image](/docs/readme/database_schema.png) 
+![Database Schema](docs/readme/database_schema_pp5.png)>
+</details>
 
 </center>
 
 ## Database Schema Summary
 
-### `User` Table
-- Represents the basic user information according to Django's built-in User model.
-- Fields: `username`, `email`, `password`.
+### `Users` Table
+- Represents registered users within the system.
+- Fields: `user_id`, `username`, `email`, `password`, `created_at`.
 
-### `UserProfile` Table
-- Extends the User model to store additional information and personal preferences.
-- Fields: `user_profile_id`, `user_id`, `profile_image`, `bio`, `country`, `top_movies`, `top_series`, `top_music_albums`, `top_books`, `top_podcasts`, `top_miscellaneous`.
+### `User Profiles` Table
+- Contains extended information for user accounts.
+- Fields: `id`, `user_id`, `default_phone_number`, `default_street_address1`, `default_street_address2`, `default_town_or_city`, `default_county`, `default_postcode`, `default_country`, `preferred_contact_method`, `date_of_birth`, `newsletter_subscription`, `preferred_dreamcenter`, `created_at`.
 
-### `DreamCategory` Table
-- Stores the different categories for dream types that users can select as they fit.
-- Fields: `media_category_id`, `media_name`.
+### `Categories` Table
+- Holds the categorization for products or services offered.
+- Fields: `category_id`, `name`, `description`, `friendly_name`.
 
-### `#` Table
-- Stores individual blog posts written by users, with details about the media being discussed.
-- Fields: `blogpost_id`, `blog_title`, `slug`, `author_id`, `created_on`, `updated_on`, `content`, `excerpt`, `status`, `featured_image`, `media_category_id`, `release_year`, `media_link`, `likes`, `bookmarks`.
+### `Products` Table
+- Stores information about the products available for purchase.
+- Fields: `product_id`, `category_id`, `name`, `slug`, `description`, `price`, `size`, `duration`, `image_url`, `image`, `available`, `created_at`.
 
-### `#` Table
-- Stores comments made by users on blog posts.
-- Fields: `comment_id`, `body`, `created_on`, `approved`, `blogpost_id`, `user_id`.
+### `Orders` Table
+- Records details of transactions and customer orders.
+- Fields: `order_number`, `user_profile_id`, `full_name`, `email`, `phone_number`, `country`, `date`, `order_total`, `original_cart`, `stripe_pid`.
 
-This database schema lays out the structure for the realDreams Co. application, facilitating user interaction with ...
+### `Order Line Items` Table
+- Details individual items within an order.
+- Fields: `id`, `order_id`, `product_id`, `quantity`, `lineitem_total`.
+
+### `Contacts` Table
+- Manages contact information and inquiries from users.
+- Fields: `contact_id`, `subject`, `email`, `phone_number`, `message`, `created_at`.
+
+### `Health Status` Table
+- Records health-related information and considerations for users.
+- Fields: `id`, `user_profile_id`, `has_epilepsy`, `has_heart_conditions`, `has_mental_illness`, `suffers_from_ptsd`, `additional_information`, `last_updated`, `declaration_truthful`, `created_at`.
+
+### Database Relationships
+- user_profiles.user_id > users.user_id // OneToOne
+
+- products.category_id > categories.category_id // ManyToOne
+
+- orders.user_profile_id > user_profiles.id // ManyToOne
+
+- order_line_items.order_id > orders.order_number // ManyToOne
+
+- order_line_items.product_id > products.product_id // ManyToOne
+
+- health_statuses.user_profile_id > user_profiles.id // OneToOne
 
 
 <br>
@@ -277,7 +304,7 @@ This database schema lays out the structure for the realDreams Co. application, 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
-
+<!--
 # Design
 
 The design of realDreams Co. is crafted with ...
