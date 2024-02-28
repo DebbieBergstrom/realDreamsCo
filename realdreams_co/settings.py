@@ -29,8 +29,9 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-debbiebergs-realdreamsc-xaty8v124z0.ws-eu108.gitpod.io',
-    'real-dreams-co.herokuapp.com',
+    'real-dreams-co-a66bd587b968.herokuapp.com',
     'localhost',
+    '127.0.0.1'
 ]
 
 
