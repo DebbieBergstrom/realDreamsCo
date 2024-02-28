@@ -1,4 +1,5 @@
 {% load static %}
+<!-- Load Django's static files tag library -->
 
 <!doctype html>
 <html lang="en">
@@ -6,6 +7,7 @@
 <head>
 
     {% block meta %}
+    <!-- Block for basic meta tags essential for all pages -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport"
@@ -13,9 +15,11 @@
     {% endblock %}
 
     {% block extra_meta %}
+    <!-- Optional block for page-specific meta tags -->
     {% endblock %}
 
     {% block corecss %}
+    <!-- Block for loading core CSS files (e.g., Bootstrap) used across the site -->
     <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -23,11 +27,15 @@
     {% endblock %}
 
     {% block extra_css %}
+    <!-- Optional block for page-specific CSS files -->
     {% endblock %}
 
     {% block corejs %}
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    <!-- Block for loading core JavaScript files (e.g., jQuery, Bootstrap) used across the site -->
+    <script src="https://kit.fontawesome.com/e9c73d7092.js"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -40,25 +48,31 @@
     {% endblock %}
 
     {% block extra_js %}
+    <!-- Optional block for page-specific JavaScript files -->
     {% endblock %}
-
+    <!-- Additional titles can be added to the extra title block for page-specific titles -->
     <title>realDreams Co. {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
     <header class="container-fluid fixed-top"></header>
+    <!-- Site-wide top header -->
 
     {% if messages %}
+    <!-- Conditional block to display messages if they exist -->
     <div class="message-container"></div>
     {% endif %}
 
     {% block page_header %}
+    <!-- Optional block for a page-specific header -->
     {% endblock %}
 
     {% block content %}
+    <!-- MAIN CONTENT BLOCK to be overridden by child templates -->
     {% endblock %}
 
     {% block postloadjs %}
+    <!-- Block for JavaScript that needs to be loaded after the main content -->
     {% endblock %}
 
 
