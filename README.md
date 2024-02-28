@@ -125,28 +125,27 @@ Developer: [Debbie Bergström](https://github.com/DebbieBergstrom) <br>
 
 
 ---
-<!--
-# Project Goals 
+# Project Goals
 
-realDreams Co. is a Django web application that serves as a vibrant community platform for cultural enthusiasts to share and explore diverse cultural content including movies, books, podcasts, and music. The key objectives of the project include:
+realDreams Co. is a Django web application created to revolutionize the way people experience real-life events in dreams. By offering tailor-made virtual dream experiences, realDreams Co. aims to:
 
-- To provide a user-friendly interface where users can easily share and discover cultural experiences.
-- To foster a community of cultural exchange, where users can engage in discussions, express their opinions, and connect with like-minded individuals.
-- To offer a personal space for users to curate and display their cultural interests and recommendations.
-- To ensure secure and straightforward user registration, authentication, and profile management.
-- To allow users to actively participate by creating content, and liking and commenting on posts.
+- Provide a unique and immersive platform where users can purchase various dream experiences.
+- Create an innovative space for users to explore different dream packages, ranging from historic events to futuristic scenarios.
+- Enable users to select the duration and location of their dream experiences, offering a customizable journey each time.
+- Ensure a seamless user journey from selecting a dream package to experiencing it in one of the realDream Centers in either Stockholm, Berlin or Paris.
+- Provide a safe process the whole way, from purchase, checking customer health status and set up a comfortable, safe dream environment, leaving the customer happy with new memories after the session is complete. 
 
 ### User Goals
 
-- To discover and engage with content that aligns with their cultural interests.
-- To find a platform that allows them to express their own cultural narratives and experiences.
-- To join a community that values and fosters cultural diversity and exchange.
+- To experience safe dreams that feel as real as life events and create unforgettable memories.
+- To have the ability to choose duration and dream experiences according to their preferences.
+- To be part of a pioneering community exploring the boundaries of virtual dream experiences.
 
 ### Site Owner Goals
 
-- To build a community-driven platform that encourages user interaction and content creation.
-- To maintain a high standard of user experience with seamless navigation and responsive design.
-- To ensure the website is a safe and welcoming space for all users to share their cultural passions.
+- To establish the first-of-its-kind platform that allows users to purchase dream experiences online.
+- To maintain a high-quality user experience with intuitive navigation and immersive design.
+- To ensure customer satisfaction by providing diverse dream packages and excellent service at realDream Centers.
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
@@ -156,22 +155,21 @@ realDreams Co. is a Django web application that serves as a vibrant community pl
 
 ### Target Audience
 
-realDreams Co. is designed for the following target audience:
+realDreams Co. is tailored for the following target audience:
 
-- Individuals passionate about various cultural domains who are looking for a space to explore and share content.
-- Users seeking a platform to keep track of their cultural experiences and get recommendations from a like-minded community.
-- Cultural content creators looking for an outlet to publish their work and engage with an audience.
+- Individuals who desire a new form of entertainment that allows them to experience dreams consciously.
+- Adventurous users seeking to explore various scenarios and historical events in a dream-like state.
+- Those interested in the concept of controlled dreaming and looking to experience specific fantasies or adventures.
 
 ### User Requirements and Expectations
 
-When using realDreams Co., users can expect the following features and characteristics to fulfill their needs:
+Users of realDreams Co. can look forward to:
 
-- An aesthetically pleasing and intuitive interface that provides ease of navigation and content discovery.
-- A secure registration and login process, ensuring user data protection and privacy.
-- Interactive features such as the ability to like, comment, and create posts that facilitate community engagement.
-- A personalized user profile where they can showcase their favorite cultural elements and manage their contributions.
-- Access to a diverse range of cultural content and the opportunity to contribute their own insights and reviews.
--->
+- A visually engaging and easy-to-navigate interface that simplifies the process of exploring and selecting dream experiences.
+- A secure purchase process with confidentiality in handling user health and personal data.
+- Interactive features that allow users to customize their dream experience type and duration, share feedback, and connect with others.
+- Personalized profiles where they can manage their preferences, and see order history. 
+- Assurance of quality and safety during dream experiences, with comprehensive support and guidance from realDream Centers.
 
 ### User Stories
 
