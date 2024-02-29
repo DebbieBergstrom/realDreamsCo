@@ -3,6 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
 
+html {
+    height: 100%;
+}
+
+body.default-background {
+    background: url('/static/dreamy_pink_heaven.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
 /* -----------------------------FONTS & TEXT SIZES */
 html {
     font-size: 16px;
@@ -61,10 +71,13 @@ h3 {
 
 .viewport-cover {
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url('/static/dreams_bridge_pink_sky.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
 
 @keyframes fade {
     0% {
@@ -137,7 +150,7 @@ h3 {
 
 /* -----------------------------MEDIA QUERIES */
 
-/* Base font size for smaller mobile devices */
+/* --- Base font size for smaller mobile devices --- */
 html {
     font-size: 14px;
     /* Adjust as needed for mobile */
@@ -163,7 +176,7 @@ p {
     /* Base text size, 14px on mobile */
 }
 
-/* Small devices (landscape phones, 576px and up) */
+/* --- Small devices (landscape phones, 576px and up) --- */
 @media (min-width: 576px) {
     html {
         font-size: 15px;
@@ -171,7 +184,7 @@ p {
     }
 }
 
-/* Medium devices (tablets, 768px and up) */
+/* --- Medium devices (tablets, 768px and up) --- */
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -179,18 +192,34 @@ p {
     }
 }
 
-/* Large devices (desktops, 992px and up) */
+/* --- Large devices (desktops, 992px and up) --- */
 @media (min-width: 992px) {
     html {
         font-size: 18px;
         /* Larger base font size for larger screens */
     }
+
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
+/* --- Extra large devices (large desktops, 1200px and up) --- */
 @media (min-width: 1200px) {
     html {
         font-size: 20px;
-        /* Even larger base font size for extra large screens */
+    }
+
+    /* Slightly larger container on xl screens */
+    .container {
+        max-width: 80%;
     }
 }
