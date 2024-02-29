@@ -2,8 +2,19 @@
 {% load static %}
 
 {% block content %}
-<div
-    style="background-image: url('{{ MEDIA_URL }}dream_big_sign.jpg'); background-size: cover; height: 100vh; display: flex; justify-content: center; align-items: center;">
+<style>
+    .viewport-cover {
+        /* Use the static tag to include the image from the static directory */
+        background: url('{% static "warm_clouds.jpg" %}') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+        /* Set the height to cover the full viewport */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div class="viewport-cover">
     <h1 class="display-4 text-success">Working</h1>
 </div>
 {% endblock %}
