@@ -22,10 +22,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+# Uncomment for production.
+# SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+# SECURITY WARNING: don't run with debug turned on in production! 
+# Set to False for production
+# DEBUG = 'DEVELOPMENT' in os.environ
+
+# Check if the 'DEVELOPMENT' environment variable is set to 'True'
+DEVELOPMENT = os.environ.get('DEVELOPMENT') == 'True'
+
+# Set DEBUG based on the DEVELOPMENT flag
+DEBUG = DEVELOPMENT
+
+if DEBUG:
+    # Development settings
+    SECRET_KEY = 'default_secret_key_for_development'
+    # Other development-specific settings can go here
+else:
+    # Production settings
+    SECRET_KEY = os.environ.get('SECRET_KEY', '')
+    if not SECRET_KEY:
+        raise ValueError("The SECRET_KEY setting must not be empty in production!")
+    # Configure other production settings appropriately
+
 
 ALLOWED_HOSTS = [
     '8000-debbiebergs-realdreamsc-xaty8v124z0.ws-eu108.gitpod.io',
