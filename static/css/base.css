@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+
+/* -----------------------------FONTS */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h2,
+h3 {
+    font-family: 'Poiret One',
+        sans-serif;
+}
+
+.btn {
+    font-family: 'Poiret One', sans-serif;
+}
+
+
+/* logo fonts */
+.real-font {
+    font-family: 'Poiret One',
+        sans-serif;
+}
+
+.dreams-font-righteous {
+    font-family: 'Righteous',
+        'Arial Black',
+        Gadget,
+        sans-serif;
+}
+
+/* -----------------------------LANDING PAGE w/ LOGO */
+
+.viewport-cover {
+    background: url('{% static "warm_clouds.jpg" %}') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #fff;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #fff;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #fff;
+    }
+}
+
+.fade-in-h1 {
+    animation: fade 1s ease-in-out 1s forwards;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.fade-in-h2 {
+    animation: fade 2s ease-in-out 1s forwards;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.fade-in-p {
+    font-size: 25px;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 60px;
+    animation: fade 3s ease-in-out 1s forwards;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.btn-explore {
+    background-color: #97c687;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    cursor: pointer;
+    animation: fade 4s ease-in-out 1s forwards,
+        glow 3s infinite ease-in-out 1s;
+    transition: background-color 0.3s;
+}
+
+.btn-explore:hover {
+    background-color: #85b376;
+}

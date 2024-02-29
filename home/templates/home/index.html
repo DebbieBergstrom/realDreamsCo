@@ -2,19 +2,17 @@
 {% load static %}
 
 {% block content %}
-<style>
-    .viewport-cover {
-        /* Use the static tag to include the image from the static directory */
-        background: url('{% static "warm_clouds.jpg" %}') no-repeat center center;
-        background-size: cover;
-        height: 100vh;
-        /* Set the height to cover the full viewport */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-<div class="viewport-cover">
-    <h1 class="display-4 text-success">Working</h1>
+<div class="viewport-cover d-flex flex-column justify-content-center align-items-center"
+    style="background: url('{% static "warm_clouds.jpg" %}') no-repeat center center; background-size: cover;">
+    <h1 class="display-2 text-white fade-in-h1">
+        <span class="real-font">real</span><span
+            class="dreams-font-righteous">Dreams Co.</span>
+    </h1>
+    <h2 class="display-5 text-white fade-in-h2">Where dreams become real
+        adventures!
+    </h2>
+    <p class="fade-in-p">...Currently Under Construction...</p>
+    <button class="btn btn-lg btn-explore">Explore</button>
 </div>
+
 {% endblock %}
