@@ -1,30 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-<div class="viewport-cover d-flex flex-column justify-content-center align-items-center"
-    style="background: url('{% static "dreams_bridge_pink_sky.jpg" %}')
-    no-repeat center center; background-size: cover;">
-    <h1 class="display-2 text-white text-center fade-in-h1 d-md-flex
-        justify-content-center flex-md-row">
-        <span class="real-font d-block d-md-inline">real</span>
-        <span class="dreams-font-righteous d-block d-md-inline">Dreams
-            Co.</span>
-    </h1>
-
-    <h2 class="display-5 text-white text-center fade-in-h2">Where dreams become
-        real
-        adventures!
-    </h2>
-    <p class="text-center text-white fade-in-p">...Currently Under
-        Construction...</p>
-    <button
-        class="btn btn-lg btn-explore d-flex flex-column align-items-center justify-content-center">
-        <span>Explore</span>
-        <i class="fa-solid fa-chevron-down mt-1"></i>
-    </button>
-
-
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
 </div>
+{% endblock %}
 
+{% block content %}
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="display-4 dreams-font-righteous text-black">
+                New Dream Experiences Are Added
+            </h1>
+            <div class="my-5">
+                <h4>
+                    <a href=""
+                        class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Read
+                        More</a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
