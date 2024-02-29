@@ -3,7 +3,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
 
-/* -----------------------------FONTS */
+/* -----------------------------FONTS & TEXT SIZES */
+html {
+    font-size: 16px;
+    /* This makes 1rem = 16px */
+}
+
+h1 {
+    font-size: 2rem;
+    /* 32px if 1rem = 16px */
+}
+
+h2 {
+    font-size: 1.5rem;
+    /* 24px if 1rem = 16px */
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* ~18.7px if 1rem = 16px */
+}
+
+p {
+    font-size: 1rem;
+    /* 16px if 1rem = 16px */
+}
+
 body {
     font-family: 'Arial', sans-serif;
 }
@@ -35,8 +60,6 @@ h3 {
 /* -----------------------------LANDING PAGE w/ LOGO */
 
 .viewport-cover {
-    background: url('{% static "warm_clouds.jpg" %}') no-repeat center center;
-    background-size: cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -81,7 +104,6 @@ h3 {
 
 .fade-in-p {
     font-size: 25px;
-    font-style: italic;
     text-transform: uppercase;
     margin: 60px;
     animation: fade 3s ease-in-out 1s forwards;
@@ -90,18 +112,85 @@ h3 {
 }
 
 .btn-explore {
-    background-color: #97c687;
-    color: #fff;
+    background-color: #fbe195;
+    color: #2a2a2b;
     border: none;
     font-size: 20px;
     text-transform: uppercase;
     padding: 10px 20px;
     cursor: pointer;
+    opacity: 0;
     animation: fade 4s ease-in-out 1s forwards,
         glow 3s infinite ease-in-out 1s;
     transition: background-color 0.3s;
 }
 
+.btn-explore i {
+    margin-top: 5px;
+    font-size: 0.75rem;
+}
+
 .btn-explore:hover {
-    background-color: #85b376;
+    background-color: #f7d87b;
+}
+
+
+/* -----------------------------MEDIA QUERIES */
+
+/* Base font size for smaller mobile devices */
+html {
+    font-size: 14px;
+    /* Adjust as needed for mobile */
+}
+
+h1 {
+    font-size: 1.75rem;
+    /* Example: scales to 24.5px on mobile */
+}
+
+h2 {
+    font-size: 1.5rem;
+    /* Example: scales to 21px on mobile */
+}
+
+h3 {
+    font-size: 1.25rem;
+    /* Example: scales to 17.5px on mobile */
+}
+
+p {
+    font-size: 0.8rem;
+    /* Base text size, 14px on mobile */
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    html {
+        font-size: 15px;
+        /* Slightly larger base font size */
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+        /* Standard base font size */
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    html {
+        font-size: 18px;
+        /* Larger base font size for larger screens */
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    html {
+        font-size: 20px;
+        /* Even larger base font size for extra large screens */
+    }
 }
