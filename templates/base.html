@@ -116,15 +116,12 @@
                             <a href="" class="dropdown-item"><i
                                     class="fas fa-user-circle"></i>My
                                 Profile</a>
-                            <a href="{% url 'account_logout' %}"
-                                class="dropdown-item"><i
+                            <a href="" class="dropdown-item"><i
                                     class="fas fa-sign-out-alt"></i>Logout</a>
                             {% else %}
-                            <a href="{% url 'account_signup' %}"
-                                class="dropdown-item"><i
+                            <a href="" class="dropdown-item"><i
                                     class="fas fa-user-friends">Register</a>
-                            <a href="{% url 'account_login' %}"
-                                class="dropdown-item"><i
+                            <a href="" class="dropdown-item"><i
                                     class="fa-solid fa-right-to-bracket"></i>Login</a>
                             {% endif %}
                         </div>
@@ -148,6 +145,18 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/top-header-mobile.html' %}
+                {% include 'includes/main-navbar.html' %}
+            </nav>
         </div>
     </header>
     {% endblock %}
