@@ -10,10 +10,20 @@ html {
 body.default-background {
     background: url('/static/dreamy_pink_heaven.jpg') no-repeat center center fixed;
     background-size: cover;
+    height: calc(100vh - 164px);
+    color: black;
 }
 
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
 
-/* -----------------------------FONTS & TEXT SIZES */
+/* -----------------------------FONTS & TEXT SIZES ***/
 html {
     font-size: 16px;
     /* This makes 1rem = 16px */
@@ -67,7 +77,7 @@ h3 {
         sans-serif;
 }
 
-/* -----------------------------LANDING PAGE w/ LOGO */
+/* -----------------------------LANDING PAGE w/ LOGO ***/
 
 .viewport-cover {
     height: 100vh;
@@ -76,6 +86,10 @@ h3 {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.main-logo-link {
+    width: fit-content;
 }
 
 
@@ -147,8 +161,44 @@ h3 {
     background-color: #f7d87b;
 }
 
+/* -----------------------------MORE BUTTONS***/
 
-/* -----------------------------MEDIA QUERIES */
+.discover-more-btn {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.discover-more-btn:hover,
+.discover-more-btn:active,
+.discover-more-btn:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+
+/* -----------------------------NAVBAR***/
+
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+
+/* -----------------------------MEDIA QUERIES***/
 
 /* --- Base font size for smaller mobile devices --- */
 html {
