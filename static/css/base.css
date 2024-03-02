@@ -143,27 +143,24 @@ h3 {
     opacity: 0;
 }
 
-.btn-explore {
-    background-color: #fbe195;
-    color: #2a2a2b;
+.btn-fade {
+    background-color: rgba(248, 232, 158, 0.3);
+    color: white;
     border: none;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    padding: 10px 20px;
     cursor: pointer;
     opacity: 0;
-    animation: fade 4s ease-in-out 1s forwards,
+    animation: fade 3s ease-in-out 1s forwards,
         glow 3s infinite ease-in-out 1s;
     transition: background-color 0.3s;
 }
 
-.btn-explore i {
-    margin-top: 5px;
-    font-size: 0.75rem;
-}
-
-.btn-explore:hover {
-    background-color: #f7d87b;
+.btn-fade:hover,
+.btn-fade:active,
+.btn-fade:focus {
+    background-color: #fae4a2;
+    color: rgb(62, 62, 63);
 }
 
 /* -----------------------------MORE BUTTONS***/
@@ -174,6 +171,12 @@ h3 {
 
 .btn-black {
     background: black;
+    color: white;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
     color: white;
 }
 
@@ -203,7 +206,7 @@ h3 {
 
 /* -----------------------------HOME PAGE***/
 .slogan {
-    line-height: 1.5;
+    line-height: 1.1;
     padding: 10px 0;
     font-size: 3.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -215,32 +218,14 @@ h3 {
     font-weight: 900;
 }
 
-.discover-more-btn {
+.discover-btn {
     background-color: rgba(252, 246, 214, 0.3);
-    color: white;
-    min-width: 240px;
-    font-weight: 900;
-    font-size: 2rem;
-    padding: 10px 20px;
-    cursor: pointer;
-    opacity: 0;
-    animation: fade 1s ease-in-out 1s forwards,
-        glow 3s infinite ease-in-out 1s;
-    transition: background-color 0.3s;
-}
-
-.discover-more-btn:hover,
-.discover-more-btn:active,
-.discover-more-btn:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    color: white;
+    animation: fade 1s ease-in-out 1s forwards, glow 3s infinite ease-in-out 1s;
 }
 
 /* -----------------------------MEDIA QUERIES***/
 
-/* --- Base font size for smaller mobile devices --- */
+/* --- Base font size and styles for smaller mobile devices --- */
 html {
     font-size: 14px;
     /* Adjust as needed for mobile */
@@ -266,6 +251,27 @@ p {
     /* Base text size, 14px on mobile */
 }
 
+.btn-fade {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.fade-in-h1 {
+    margin-top: -210px;
+    line-height: 0.8;
+    margin-bottom: 24px;
+}
+
+.real-font-slogan {
+    line-height: 1em;
+}
+
+.slogan {
+    margin-top: 9rem !important;
+    margin-bottom: 10px:
+}
+
+
 /* --- Small devices (landscape phones, 576px and up) --- */
 @media (min-width: 576px) {
     html {
@@ -279,6 +285,17 @@ p {
     html {
         font-size: 16px;
         /* Standard base font size */
+    }
+
+    .btn-fade {
+        font-size: 1.8rem;
+        margin-top: 10px;
+    }
+
+    .fade-in-h1 {
+        margin-top: -170px;
+        line-height: 0.8;
+        margin-bottom: 24px;
     }
 }
 
