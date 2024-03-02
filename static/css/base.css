@@ -11,7 +11,7 @@ body.default-background {
     background: url('/static/dreamy_pink_heaven.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: black;
+    color: white;
 }
 
 /* from Bulma */
@@ -59,10 +59,9 @@ h3 {
         sans-serif;
 }
 
-.btn {
-    font-family: 'Poiret One', sans-serif;
+.text-black {
+    color: black;
 }
-
 
 /* logo fonts */
 .real-font {
@@ -90,6 +89,12 @@ h3 {
 
 .main-logo-link {
     width: fit-content;
+    color: black;
+}
+
+.main-logo-link span {
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -131,7 +136,7 @@ h3 {
 
 .fade-in-p {
     font-size: 25px;
-    text-transform: uppercase;
+    text-transform: nav-link;
     margin: 60px;
     animation: fade 3s ease-in-out 1s forwards;
     pointer-events: none;
@@ -163,15 +168,65 @@ h3 {
 
 /* -----------------------------MORE BUTTONS***/
 
-.discover-more-btn {
-    background: black;
-    color: white;
-    min-width: 260px;
+.btn {
+    font-family: 'Poiret One', sans-serif;
 }
 
 .btn-black {
     background: black;
     color: white;
+}
+
+/* -----------------------------NAV***/
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    color: white;
+}
+
+.nav-link {
+    font-family: 'Poiret One',
+        sans-serif;
+    color: black;
+    font-weight: 900;
+}
+
+.dropdown-item {
+    font-family: 'Roboto',
+        sans-serif;
+    color: gray;
+}
+
+/* -----------------------------HOME PAGE***/
+.slogan {
+    line-height: 1.5;
+    padding: 10px 0;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.real-font-slogan {
+    font-family: 'Poiret One',
+        sans-serif;
+    font-weight: 900;
+}
+
+.discover-more-btn {
+    background-color: rgba(252, 246, 214, 0.3);
+    color: white;
+    min-width: 240px;
+    font-weight: 900;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    opacity: 0;
+    animation: fade 1s ease-in-out 1s forwards,
+        glow 3s infinite ease-in-out 1s;
+    transition: background-color 0.3s;
 }
 
 .discover-more-btn:hover,
@@ -180,23 +235,8 @@ h3 {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
     color: white;
 }
-
-
-/* -----------------------------NAVBAR***/
-
-
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
 
 /* -----------------------------MEDIA QUERIES***/
 

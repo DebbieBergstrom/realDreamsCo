@@ -102,7 +102,7 @@
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg fa-2x"></i>
                                 </div>
-                                <p class="my-0">My Account</p>
+                                <p class="my-0 nav-link">My Account</p>
                             </div>
                         </a>
                         <div class="dropdown-menu border-0"
@@ -110,19 +110,21 @@
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
                             <a href="" class="dropdown-item"><i
-                                    class="fa-solid fa-gears"></i>Product
+                                    class="fas fa-solid fa-gears"></i> Product
                                 Management</a>
                             {% endif %}
                             <a href="" class="dropdown-item"><i
-                                    class="fas fa-user-circle"></i>My
+                                    class="fa-user-circle"></i> My
                                 Profile</a>
                             <a href="" class="dropdown-item"><i
-                                    class="fas fa-sign-out-alt"></i>Logout</a>
+                                    class="fa-sign-out-alt"></i> Logout</a>
                             {% else %}
                             <a href="" class="dropdown-item"><i
-                                    class="fas fa-user-friends">Register</a>
+                                    class="fas fa-user-friends"></i>
+                                Register</a>
                             <a href="" class="dropdown-item"><i
-                                    class="fa-solid fa-right-to-bracket"></i>Login</a>
+                                    class="fa-solid fa-right-to-bracket"></i>
+                                Login</a>
                             {% endif %}
                         </div>
                     </li>

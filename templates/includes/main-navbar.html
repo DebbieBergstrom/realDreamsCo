@@ -1,79 +1,64 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item d-block d-md-none">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5"
+            <a class="font-weight-bold nav-link text-black mr-5"
                 href="{% url 'home' %}" id="home-link">
                 Home
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5"
-                href="#" id="all-products-link" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                All Products
+            <a class="nav-link text-black mr-5" href="#" id="all-dreams-link"
+                data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                All
             </a>
             <div class="dropdown-menu border-0"
-                aria-labelledby="all-products-link">
-                <a href="{% url 'products' %}?sort=price&direction=asc"
-                    class="dropdown-item">By Price</a>
-                <a href="{% url 'products' %}?sort=rating&direction=desc"
-                    class="dropdown-item ">By Rating</a>
-                <a href="{% url 'products' %}?sort=category&direction=asc"
-                    class="dropdown-item ">By Category</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All
-                    Dreams</a>
+                aria-labelledby="all-dreams-link">
+                <a href="" class="dropdown-item">By Price</a>
+                <a href="" class="dropdown-item ">By Rating</a>
+                <a href="" class="dropdown-item ">By Category</a>
+                <a href="" class="dropdown-item"> All realDreams</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5"
-                href="#" id="clothing-link" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Clothing
+            <a class="nav-link text-black mr-5" href="#" id="categories-link"
+                data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Categories
             </a>
-            <div class="dropdown-menu border-0"
-                aria-labelledby="clothing-link">
-                <a href="{% url 'products' %}?category=activewear,essentials"
-                    class="dropdown-item">Dream 1</a>
-                <a href="{% url 'products' %}?category=jeans"
-                    class="dropdown-item">Dream 1</a>
-                <a href="{% url 'products' %}?category=shirts"
-                    class="dropdown-item">Dream 1</a>
-                <a href="{% url 'products' %}?category=activewear,essentials,jeans,shirts"
-                    class="dropdown-item">All Dreams</a>
+            <div class="dropdown-menu border-0" aria-labelledby="about-link">
+                <a href="" class="dropdown-item">Historical Events</a>
+                <a href="" class="dropdown-item">Adrenaline Kicks</a>
+                <a href="" class="dropdown-item">Explore Lost Worlds</a>
+                <a href="" class="dropdown-item">All Dreams</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5"
-                href="#" id="Dreams-link" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Dream 1
+            <a class="nav-link text-black mr-5" href="#" id="about-link"
+                data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                About Us
             </a>
             <div class="dropdown-menu border-0"
                 aria-labelledby="homeware-link">
-                <a href="{% url 'products' %}?category=bed_bath"
-                    class="dropdown-item">Dream 2</a>
-                <a href="{% url 'products' %}?category=kitchen_dining"
-                    class="dropdown-item">Dream 3</a>
-                <a href="{% url 'products' %}?category=bed_bath,kitchen_dining"
-                    class="dropdown-item">All Dreams</a>
+                <a href="" class="dropdown-item">Who Are We</a>
+                <a href="" class="dropdown-item">Our realDream Centers</a>
+                <a href="" class="dropdown-item">Testimonials</a>
+                <a href="" class="dropdown-item">Contact Us</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#"
-                id="specials-link" data-toggle="dropdown" aria-haspopup="true"
+            <a class="nav-link text-black" href="#" id="specials-link"
+                data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                Special Offers
+                News
             </a>
             <div class="dropdown-menu border-0"
                 aria-labelledby="specials-link">
-                <a href="{% url 'products' %}?category=new_arrivals"
-                    class="dropdown-item">News</a>
-                <a href="{% url 'products' %}?category=deals" <a
-                    href="{% url 'products' %}?category=new_arrivals,deals,clearance"
-                    class="dropdown-item">All Specials</a>
+                <a href="" class="dropdown-item">News</a>
             </div>
         </li>
     </ul>
