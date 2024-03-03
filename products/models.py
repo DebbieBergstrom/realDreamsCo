@@ -21,9 +21,9 @@ class Category(models.Model):
 
 class Product(models.Model):
     SIZE_CHOICES = (
-        ('S', 'Small'),
-        ('M', 'Medium'),
-        ('L', 'Large'),
+        ('S', 'S'),
+        ('M', 'M'),
+        ('L', 'L'),
     )
 
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
