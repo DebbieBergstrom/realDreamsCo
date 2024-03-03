@@ -1,0 +1,62 @@
+/* ---PRODUCTS CSS ONLY ***/
+
+
+/* ------------------------------------------PRODUCT CARD STYLES***/
+.card {
+    border: none;
+    background-color: var(--dark-bg);
+    margin-bottom: 1rem;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(15, 15, 15, 0.2);
+}
+
+.card-body {
+    padding: 1rem;
+    -webkit-box-shadow: 5px 5px 5px 0px #0000006b,
+        inset 4px 4px 15px 0px #0000006b,
+        15px 4px 48px 15px rgba(18, 18, 18, 0.55);
+    box-shadow: 5px 5px 5px 0px #0000006b,
+        inset 4px 4px 15px 0px #0000006b,
+        15px 4px 48px 15px rgba(18, 18, 18, 0.55);
+}
+
+.card-title {
+    color: var(--light-text-gr);
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card-text {
+    color: var(--light-text-gr);
+    font-size: 14px;
+    text-overflow: ellipsis;
+}
+
+.aspect-ratio-3-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 66.67%;
+    overflow: hidden;
+}
+
+.image-container .aspect-ratio-3-2 {
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover .aspect-ratio-3-2 {
+    transform: scale(1.1);
+}

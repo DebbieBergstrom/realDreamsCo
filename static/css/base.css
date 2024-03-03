@@ -39,34 +39,29 @@ body.default-background {
     left: 0;
     position: fixed;
     background: var(--amaranth-pink);
-    opacity: 70%;
+    opacity: 75%;
     z-index: -1;
 }
 
-/* ------------------------------------------FONTS & TEXT SIZES ***/
+/* --- BASE FONT SIZE & styles for SMALLER mobile devices --- */
 html {
-    font-size: 16px;
-    /* This makes 1rem = 16px */
+    font-size: 14px;
 }
 
 h1 {
-    font-size: 2rem;
-    /* 32px if 1rem = 16px */
+    font-size: 2.5rem;
 }
 
 h2 {
     font-size: 1.5rem;
-    /* 24px if 1rem = 16px */
 }
 
 h3 {
-    font-size: 1.17rem;
-    /* ~18.7px if 1rem = 16px */
+    font-size: 1.25rem;
 }
 
 p {
     font-size: 1rem;
-    /* 16px if 1rem = 16px */
 }
 
 body {
@@ -143,6 +138,9 @@ h3 {
 }
 
 .fade-in-h1 {
+    margin-top: -210px;
+    line-height: 0.8;
+    margin-bottom: 24px;
     animation: fade 1s ease-in-out 1s forwards;
     pointer-events: none;
     opacity: 0;
@@ -168,8 +166,9 @@ h3 {
     background-color: rgba(248, 232, 158, 0.3);
     color: var(--white);
     border: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
+    margin-top: 10px;
     cursor: pointer;
     opacity: 0;
     animation: fade 3s ease-in-out 1s forwards,
@@ -230,13 +229,19 @@ h3 {
     line-height: 1.1;
     padding: 10px 0;
     font-size: 3.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 9rem !important;
+    margin-bottom: 10px: text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .real-font-slogan {
     font-family: 'Poiret One',
         sans-serif;
     font-weight: 900;
+    line-height: 1em;
+}
+
+.products-header {
+    margin-top: 6rem !important;
 }
 
 .discover-btn {
@@ -244,60 +249,108 @@ h3 {
     animation: fade 1s ease-in-out 1s forwards, glow 3s infinite ease-in-out 1s;
 }
 
+/* ------------------------------------------CARD STYLES ***/
+
+.card {
+    border: none;
+    background-color: var(--dark-bg);
+    margin-bottom: 1rem;
+    border-radius: 20px;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(15, 15, 15, 0.2);
+}
+
+.card-body {
+    padding: 1rem;
+    -webkit-box-shadow: 5px 5px 5px 0px #0000006b,
+        inset 4px 8px 15px 0px #0000006b,
+        8px 4px 48px 5px rgba(18, 18, 18, 0.55);
+    border-radius: 18px;
+    box-shadow: 5px 5px 5px 0px #0000006b,
+        inset 4px 8px 15px 0px #0000006b,
+        8px 4px 48px 5px rgba(18, 18, 18, 0.55);
+    border-radius: 18px;
+}
+
+.image-flash {
+    background-color: var(--vanilla);
+    opacity: 77%;
+    padding: 10px;
+    max-width: 94%;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.card-title {
+    color: var(--delft-blue);
+    font-family: 'Righteous';
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card-title a:hover,
+.card-title a:active,
+.card-title a:focus {
+    text-decoration: none;
+}
+
+.card-text {
+    color: var(--delft-blue);
+    font-size: 10px;
+    text-overflow: ellipsis;
+}
+
+.aspect-ratio-3-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    padding-top: 66.67%;
+
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
 /* ------------------------------------------MEDIA QUERIES***/
-
-/* --- BASE FONT SIZE & styles for SMALLER mobile devices --- */
-html {
-    font-size: 14px;
-    /* Adjust as needed for mobile */
-}
-
-h1 {
-    font-size: 1.75rem;
-    /* Example: scales to 24.5px on mobile */
-}
-
-h2 {
-    font-size: 1.5rem;
-    /* Example: scales to 21px on mobile */
-}
-
-h3 {
-    font-size: 1.25rem;
-    /* Example: scales to 17.5px on mobile */
-}
-
-p {
-    font-size: 0.8rem;
-    /* Base text size, 14px on mobile */
-}
-
-.btn-fade {
-    font-size: 1.5rem;
-    margin-top: 10px;
-}
-
-.fade-in-h1 {
-    margin-top: -210px;
-    line-height: 0.8;
-    margin-bottom: 24px;
-}
-
-.real-font-slogan {
-    line-height: 1em;
-}
-
-.slogan {
-    margin-top: 9rem !important;
-    margin-bottom: 10px:
-}
-
 
 /* --- SMALL devices (landscape phones, 576px and up) --- */
 @media (min-width: 576px) {
     html {
         font-size: 15px;
         /* Slightly larger base font size */
+    }
+
+    h1 {
+        font-size: 3rem;
+        /* Example: scales to 24.5px on mobile */
+    }
+
+    .products-header {
+        margin-top: 6.5rem !important;
     }
 }
 
@@ -306,6 +359,21 @@ p {
     html {
         font-size: 16px;
         /* Standard base font size */
+    }
+
+    h1 {
+        font-size: 3rem;
+        /* Example: scales to 24.5px on mobile */
+    }
+
+    h2 {
+        font-size: 2rem;
+        /* Example: scales to 21px on mobile */
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        /* Example: scales to 17.5px on mobile */
     }
 
     .btn-fade {
@@ -337,6 +405,10 @@ p {
 
     .header-container {
         padding-top: 164px;
+    }
+
+    .products-header {
+        margin-top: 4rem !important;
     }
 }
 
