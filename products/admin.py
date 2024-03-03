@@ -6,6 +6,7 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'get_category_friendly_name',
         'price',
+        'size',
         'duration',
         'available',
         'image',
