@@ -23,7 +23,7 @@ body.default-background {
     width: 1.5rem;
 }
 
-/* -----------------------------FONTS & TEXT SIZES ***/
+/* ------------------------------------------FONTS & TEXT SIZES ***/
 html {
     font-size: 16px;
     /* This makes 1rem = 16px */
@@ -76,7 +76,7 @@ h3 {
         sans-serif;
 }
 
-/* -----------------------------LANDING PAGE w/ LOGO ***/
+/* ------------------------------------------LANDING PAGE w/ LOGO ***/
 
 .viewport-cover {
     height: 100vh;
@@ -110,15 +110,15 @@ h3 {
 
 @keyframes glow {
     0% {
-        box-shadow: 0 0 5px #fff;
+        box-shadow: 0 0 5px white;
     }
 
     50% {
-        box-shadow: 0 0 20px #fff;
+        box-shadow: 0 0 20px white;
     }
 
     100% {
-        box-shadow: 0 0 5px #fff;
+        box-shadow: 0 0 5px white;
     }
 }
 
@@ -143,6 +143,7 @@ h3 {
     opacity: 0;
 }
 
+/* landing page button */
 .btn-fade {
     background-color: rgba(248, 232, 158, 0.3);
     color: white;
@@ -163,7 +164,7 @@ h3 {
     color: rgb(62, 62, 63);
 }
 
-/* -----------------------------MORE BUTTONS***/
+/* ------------------------------------------MORE BUTTONS***/
 
 .btn {
     font-family: 'Poiret One', sans-serif;
@@ -180,7 +181,7 @@ h3 {
     color: white;
 }
 
-/* -----------------------------NAV***/
+/* ------------------------------------------NAVBAR***/
 /* from Bulma */
 .icon {
     align-items: center;
@@ -204,7 +205,7 @@ h3 {
     color: gray;
 }
 
-/* -----------------------------HOME PAGE***/
+/* ------------------------------------------HOME PAGE***/
 .slogan {
     line-height: 1.1;
     padding: 10px 0;
@@ -223,9 +224,9 @@ h3 {
     animation: fade 1s ease-in-out 1s forwards, glow 3s infinite ease-in-out 1s;
 }
 
-/* -----------------------------MEDIA QUERIES***/
+/* ------------------------------------------MEDIA QUERIES***/
 
-/* --- Base font size and styles for smaller mobile devices --- */
+/* --- BASE FONT SIZE & styles for SMALLER mobile devices --- */
 html {
     font-size: 14px;
     /* Adjust as needed for mobile */
@@ -272,7 +273,7 @@ p {
 }
 
 
-/* --- Small devices (landscape phones, 576px and up) --- */
+/* --- SMALL devices (landscape phones, 576px and up) --- */
 @media (min-width: 576px) {
     html {
         font-size: 15px;
@@ -280,7 +281,7 @@ p {
     }
 }
 
-/* --- Medium devices (tablets, 768px and up) --- */
+/* --- MEDIUM devices (tablets, 768px and up) --- */
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -299,7 +300,7 @@ p {
     }
 }
 
-/* --- Large devices (desktops, 992px and up) --- */
+/* --- LARGE devices (desktops, 992px and up) --- */
 @media (min-width: 992px) {
     html {
         font-size: 18px;
@@ -319,7 +320,7 @@ p {
     }
 }
 
-/* --- Extra large devices (large desktops, 1200px and up) --- */
+/* --- EXTRA LARGE devices (large desktops, 1200px and up) --- */
 @media (min-width: 1200px) {
     html {
         font-size: 20px;
