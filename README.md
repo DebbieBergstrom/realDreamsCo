@@ -302,21 +302,21 @@ When creating the database structure schema for this project, I utilized the [db
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
-<!--
-# Design
 
+# Design
+<!--
 The design of realDreams Co. is crafted with ...
 
 ### Design Choices
 
 Design choices were made with the intention of creating an inviting and user-friendly interface that also resonates with the theme of futuristic dreamy nostalgia ...
-
+-->
 ### Color
 
 In creating balanced interfaces that are both visually appealing and functional, we carefully selected a color palette that complements the overall theme of the site.
 
-![Color Palette image](docs/readme/colorpalette.png)
-
+![Color Palette image](docs/readme/color_palette.png)
+<!--
 **Dominant:**
 
 The choice of 'Color' Green, represented by #, as the dominant color, reflects the ...
