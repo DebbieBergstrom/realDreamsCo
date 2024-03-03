@@ -2,6 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
+/* ------------------------------------------COLOR VARIABLES ***/
+:root {
+    --peach: #fec29d;
+    --vanilla: #fae4a2;
+    --amaranth-pink: #de97b5;
+    --delft-blue: #3a445d;
+    --black: black;
+    --white: white;
+}
 
 html {
     height: 100%;
@@ -21,6 +30,17 @@ body.default-background {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: var(--amaranth-pink);
+    opacity: 70%;
+    z-index: -1;
 }
 
 /* ------------------------------------------FONTS & TEXT SIZES ***/
@@ -110,15 +130,15 @@ h3 {
 
 @keyframes glow {
     0% {
-        box-shadow: 0 0 5px white;
+        box-shadow: 0 0 5px var(--white);
     }
 
     50% {
-        box-shadow: 0 0 20px white;
+        box-shadow: 0 0 20px var(--white);
     }
 
     100% {
-        box-shadow: 0 0 5px white;
+        box-shadow: 0 0 5px var(--white);
     }
 }
 
@@ -146,7 +166,7 @@ h3 {
 /* landing page button */
 .btn-fade {
     background-color: rgba(248, 232, 158, 0.3);
-    color: white;
+    color: var(--white);
     border: none;
     font-size: 2rem;
     font-weight: 700;
@@ -160,7 +180,7 @@ h3 {
 .btn-fade:hover,
 .btn-fade:active,
 .btn-fade:focus {
-    background-color: #fae4a2;
+    background-color: var(--vanilla);
     color: rgb(62, 62, 63);
 }
 
@@ -172,13 +192,13 @@ h3 {
 
 .btn-black {
     background: black;
-    color: white;
+    color: var(--white);
 }
 
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    color: white;
+    color: var(--white);
 }
 
 /* ------------------------------------------NAVBAR***/
@@ -189,7 +209,7 @@ h3 {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
-    color: white;
+    color: var(--white);
 }
 
 .nav-link {
@@ -202,7 +222,7 @@ h3 {
 .dropdown-item {
     font-family: 'Roboto',
         sans-serif;
-    color: gray;
+    color: var(--delft-blue);
 }
 
 /* ------------------------------------------HOME PAGE***/
