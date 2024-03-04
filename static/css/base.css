@@ -148,15 +148,6 @@ h3 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.fade-in-p {
-    font-size: 25px;
-    text-transform: nav-link;
-    margin: 60px;
-    animation: fade 3s ease-in-out 1s forwards;
-    pointer-events: none;
-    opacity: 0;
-}
-
 /* landing page button */
 .btn-fade {
     background-color: var(--peach);
@@ -168,6 +159,12 @@ h3 {
     margin-top: 10px;
     cursor: pointer;
     opacity: 0;
+    animation: fade 3s ease-in-out 1s forwards,
+        glow 3s infinite ease-in-out 1s;
+    transition: background-color 0.3s;
+}
+
+.glow {
     animation: fade 3s ease-in-out 1s forwards,
         glow 3s infinite ease-in-out 1s;
     transition: background-color 0.3s;
@@ -266,7 +263,7 @@ h3 {
 #banner {
     background-color: #253c7447;
     opacity: 0;
-    animation: fade 3s ease-in-out 1s forwards;
+    animation: fade 2s ease-in-out 1s forwards;
 }
 
 #banner .btn {
@@ -402,7 +399,7 @@ h3 {
 }
 
 .fade-in-product {
-    animation: fade 1s ease-in-out 1s forwards;
+    animation: fade 0.5s ease-in-out 0.5s forwards;
     pointer-events: none;
     opacity: 0;
 }
