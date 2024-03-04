@@ -28,11 +28,16 @@
                 aria-expanded="false">
                 Categories
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="about-link">
-                <a href="" class="dropdown-item">Historical Events</a>
-                <a href="" class="dropdown-item">Adrenaline Kicks</a>
-                <a href="" class="dropdown-item">Underwater Worlds</a>
-                <a href="" class="dropdown-item">All Dreams</a>
+            <div class="dropdown-menu border-0"
+                aria-labelledby="categories-link">
+                <a href="{% url 'products' %}?category=historical_events"
+                    class="dropdown-item">Historical Events</a>
+                <a href="{% url 'products' %}?category=adrenaline_kicks"
+                    class="dropdown-item">Adrenaline Kicks</a>
+                <a href="{% url 'products' %}?category=underwater_worlds"
+                    class="dropdown-item">Underwater Worlds</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All
+                    Dreams</a>
             </div>
         </li>
 
@@ -42,8 +47,7 @@
                 aria-expanded="false">
                 About Us
             </a>
-            <div class="dropdown-menu border-0"
-                aria-labelledby="homeware-link">
+            <div class="dropdown-menu border-0" aria-labelledby="about-link">
                 <a href="" class="dropdown-item">Who Are We</a>
                 <a href="" class="dropdown-item">Our realDream Centers</a>
                 <a href="" class="dropdown-item">Testimonials</a>
@@ -52,13 +56,12 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link text-black" href="#" id="specials-link"
+            <a class="nav-link text-black" href="#" id="news-link"
                 data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 News
             </a>
-            <div class="dropdown-menu border-0"
-                aria-labelledby="specials-link">
+            <div class="dropdown-menu border-0" aria-labelledby="news-link">
                 <a href="" class="dropdown-item">News</a>
             </div>
         </li>
