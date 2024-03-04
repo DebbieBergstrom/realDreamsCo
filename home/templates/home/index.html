@@ -10,30 +10,56 @@
 {% endblock %}
 
 {% block content %}
-<div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
-        <div class="col-12 col-md-10 text-center">
-            <h2 class="my-4 slogan">
-                <span
-                    class="real-font-slogan text-uppercase mb-2 display-3">Sail
-                    the Seas of Fantasy</span>
-            </h2>
-            <h3><span class="real-font display-4">Launch
-                    your
-                </span>
-                <br>
-                <span class="real-font-slogan display-4">real</span><span
-                    class="dreams-font-righteous display-4">Dream </span><span
-                    class="real-font-slogan display-4">Voyage</span>
-            </h3>
-            <div class="my-5 d-flex flex-column align-items-center">
-                <a href=""
-                    class="btn-fade discover-btn btn btn-lg rounded-1 d-flex flex-column align-items-center">
-                    Discover Dreams
-                    <i class="fa-solid fa-chevron-down"></i>
-                </a>
+<div class="container-fluid p-0">
+    <!-- Slogan Section -->
+    <div class="container h-100 mb-5">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12 col-md-10 text-center">
+                <h2 class="my-5 slogan fade-in-h2">
+                    <span class="real-font-slogan mb-3 display-4">SAIL
+                        the SEAS of FANTASY</span>
+                </h2>
+                <h3 class="fade-in-h2">
+                    <span class="real-font display-5">launch your </span>
+                    <br>
+                    <span class="real-font-slogan display-5">real</span>
+                    <span class="dreams-font-righteous display-5">Dream </span>
+                    <br>
+                    <span class="real-font-slogan display-5">voyage</span>
+                </h3>
             </div>
         </div>
     </div>
+
+    <!-- BANNER SECTION -->
+    <section id="banner" class="text-center py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Buttons -->
+                <div class="col-4 col-sm-3 col-md-2">
+                    <a href="{% url 'products' %}"
+                        class="btn btn-banner btn-block btn-sm p-0">Discover
+                        Dreams</a>
+                    <p class="mt-1">Start your dream journey today!</p>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2">
+                    <a href="#"
+                        class="btn btn-banner btn-block btn-sm p-0">About
+                        Us</a>
+                    <p class="mt-1">Learn more about our vision and
+                        values</p>
+                </div>
+                <div class="col-4 col-sm-3 col-md-2">
+                    <a href="#"
+                        class="btn btn-banner btn-block btn-sm p-0">What's
+                        Up</a>
+                    <p class="mt-1">Stay updated with the latest news
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
+
+
 {% endblock %}

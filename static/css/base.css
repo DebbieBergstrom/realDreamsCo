@@ -4,7 +4,7 @@
 
 /* ------------------------------------------COLOR VARIABLES ***/
 :root {
-    --peach: #fec29d;
+    --peach: #f3d4c1;
     --vanilla: #fae4a2;
     --amaranth-pink: #de97b5;
     --delft-blue: #3a445d;
@@ -19,18 +19,10 @@ html {
 body.default-background {
     background: url('/static/dreamy_pink_heaven.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: calc(50vh - 164px);
     color: white;
 }
 
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
 
 .overlay {
     height: 100%;
@@ -38,8 +30,8 @@ body.default-background {
     top: 0;
     left: 0;
     position: fixed;
-    background: var(--amaranth-pink);
-    opacity: 75%;
+    background: #f3c8d9;
+    opacity: 70%;
     z-index: -1;
 }
 
@@ -49,11 +41,11 @@ html {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 h3 {
@@ -144,12 +136,15 @@ h3 {
     animation: fade 1s ease-in-out 1s forwards;
     pointer-events: none;
     opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .fade-in-h2 {
     animation: fade 2s ease-in-out 1s forwards;
+    font-size: 2.4rem;
     pointer-events: none;
     opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .fade-in-p {
@@ -163,8 +158,9 @@ h3 {
 
 /* landing page button */
 .btn-fade {
-    background-color: rgba(248, 232, 158, 0.3);
+    background-color: var(--peach);
     color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     border: none;
     font-size: 1.5rem;
     font-weight: 700;
@@ -200,7 +196,26 @@ h3 {
     color: var(--white);
 }
 
+#banner {
+    background-color: #253c7447;
+    opacity: 0;
+    animation: fade 3s ease-in-out 1s forwards;
+}
+
+#banner .btn {
+    font-size: 1.6rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.btn-banner {
+    border-radius: 50%;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
 /* ------------------------------------------NAVBAR***/
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -214,8 +229,22 @@ h3 {
 .nav-link {
     font-family: 'Poiret One',
         sans-serif;
-    color: black;
     font-weight: 900;
+    padding: 0.1rem;
+}
+
+.navbar .nav-link {
+    color: var(--black) !important;
+
+}
+
+.nav-link:hover {
+    color: var(--delft-blue);
+}
+
+.fa-user:hover,
+.fa-cart-shopping:hover {
+    transform: scale(1.1);
 }
 
 .dropdown-item {
@@ -228,9 +257,10 @@ h3 {
 .slogan {
     line-height: 1.1;
     padding: 10px 0;
-    font-size: 3.5rem;
-    margin-top: 9rem !important;
-    margin-bottom: 10px: text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 5rem;
+    margin-top: 5rem !important;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .real-font-slogan {
@@ -250,6 +280,10 @@ h3 {
 }
 
 /* ------------------------------------------CARD STYLES ***/
+.hr-card {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
 
 .card {
     border: none;
@@ -264,14 +298,16 @@ h3 {
 
 .card-body {
     padding: 1rem;
-    -webkit-box-shadow: 5px 5px 5px 0px #0000006b,
-        inset 4px 8px 15px 0px #0000006b,
-        8px 4px 48px 5px rgba(18, 18, 18, 0.55);
     border-radius: 18px;
-    box-shadow: 5px 5px 5px 0px #0000006b,
-        inset 4px 8px 15px 0px #0000006b,
-        8px 4px 48px 5px rgba(18, 18, 18, 0.55);
+    -webkit-box-shadow: 10px 13px 18px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 13px 18px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 13px 18px -8px rgba(0, 0, 0, 0.75);
     border-radius: 18px;
+}
+
+.card-body-bg {
+    background-color: var(--white);
+    z-index: -1;
 }
 
 .image-flash {
@@ -302,9 +338,14 @@ h3 {
 
 .card-text {
     color: var(--delft-blue);
-    font-size: 10px;
     text-overflow: ellipsis;
 }
+
+.card-text p {
+    font-size: 12px;
+    margin: auto;
+}
+
 
 .aspect-ratio-3-2 {
     position: absolute;

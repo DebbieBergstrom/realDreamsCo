@@ -64,7 +64,7 @@
     {% block header %}
     <header class="container-fluid fixed-top">
         <!-- Site-wide top header -->
-        <div id="topnavbar" class="row bg-white pt-lg-2 d-none d-lg-flex">
+        <div id="topnavbar" class="row bg-white p-lg-3 d-none d-lg-flex">
             <div
                 class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -100,7 +100,7 @@
                             id="user-options" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
-                                <div><i class="fas fa-user fa-lg fa-2x"></i>
+                                <div><i class="fas fa-user fa-lg"></i>
                                 </div>
                                 <p class="my-0 nav-link">My Account</p>
                             </div>
@@ -132,8 +132,7 @@
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                             href="">
                             <div class="text-center">
-                                <div><i
-                                        class="fa-solid fa-basket-shopping"></i>
+                                <div><i class="fa-solid fa-cart-shopping"></i>
                                 </div>
                                 <p class="my-1">
                                     {% if grand_total %}
@@ -149,7 +148,7 @@
             </div>
         </div>
         <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <nav class="navbar navbar-expand-lg navbar-light w-100 text-black">
                 <button class="navbar-toggler" type="button"
                     data-toggle="collapse" data-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false"
