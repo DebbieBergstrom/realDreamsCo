@@ -400,7 +400,6 @@ h3 {
 
 .fade-in-product {
     animation: fade 0.5s ease-in-out 0.5s forwards;
-    pointer-events: none;
     opacity: 0;
 }
 
