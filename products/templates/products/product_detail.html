@@ -45,7 +45,7 @@
                 </h2>
                 <h3 class="mb2 text-center text-muted small"><i
                         class="fa-solid fa-layer-group"></i>
-                    {{ product.category }}
+                    {{ product.category.get_friendly_name }}
                 </h3>
                 <hr>
                 <div class="fade-in-product mt-3">
@@ -76,6 +76,14 @@
                                     class="fa-solid fa-stopwatch fa-2x pr-1"></i>{{ product.duration }}</span>
                         </div>
                     </div>
+                    <hr>
+                    <p class="text-muted">This realDream can be enjoyed in
+                        center(s):</p>
+                    <ul class="text-muted">
+                        {% for center in product.dream_center.all %}
+                        <li>{{ center.name }}</li>
+                        {% endfor %}
+                    </ul>
                     <p class="mt-3">{{ product.description }}</p>
                 </div>
             </div>
