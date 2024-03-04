@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* ------------------------------------------COLOR VARIABLES ***/
 :root {
@@ -24,7 +25,7 @@ body.default-background {
 }
 
 
-.overlay {
+/* .overlay {
     height: 100%;
     width: 100%;
     top: 0;
@@ -33,7 +34,7 @@ body.default-background {
     background: #f3c8d9;
     opacity: 70%;
     z-index: -1;
-}
+} */
 
 /* --- BASE FONT SIZE & styles for SMALLER mobile devices --- */
 html {
@@ -57,7 +58,7 @@ p {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 h2,
@@ -87,7 +88,7 @@ h3 {
 
 .viewport-cover {
     height: 100vh;
-    background-image: url('/static/dreams_bridge_pink_sky.jpg');
+    background-image: url('/static/dreamy_pink_heaven.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -175,8 +176,8 @@ h3 {
 .btn-fade:hover,
 .btn-fade:active,
 .btn-fade:focus {
-    background-color: var(--vanilla);
-    color: rgb(62, 62, 63);
+    background-color: var(--amaranth-pink);
+    text-shadow: 2px 2px 4px rgba(10, 10, 10, 0.5);
 }
 
 /* ------------------------------------------MORE BUTTONS***/
@@ -195,24 +196,6 @@ h3 {
 .btn-black:focus {
     color: var(--white);
 }
-
-#banner {
-    background-color: #253c7447;
-    opacity: 0;
-    animation: fade 3s ease-in-out 1s forwards;
-}
-
-#banner .btn {
-    font-size: 1.6rem;
-    padding: 0.2rem 0.5rem;
-}
-
-.btn-banner {
-    border-radius: 50%;
-    color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
 
 /* ------------------------------------------NAVBAR***/
 
@@ -279,7 +262,42 @@ h3 {
     animation: fade 1s ease-in-out 1s forwards, glow 3s infinite ease-in-out 1s;
 }
 
-/* ------------------------------------------CARD STYLES ***/
+/* home page banner section */
+#banner {
+    background-color: #253c7447;
+    opacity: 0;
+    animation: fade 3s ease-in-out 1s forwards;
+}
+
+#banner .btn {
+    font-size: 1.6rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.btn-banner {
+    border-radius: 50%;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.banner-p {
+    font-family: 'Roboto Condensed';
+    font-weight: 100;
+}
+
+.btn-banner:hover {
+    color: var(--delft-blue);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+
+/* ------------------------------------------PRODUCT PAGE CARD & BACKGROUND STYLES ***/
+.products-background {
+    background: url('/static/sparkling_dreams.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
 .hr-card {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -305,11 +323,6 @@ h3 {
     border-radius: 18px;
 }
 
-.card-body-bg {
-    background-color: var(--white);
-    z-index: -1;
-}
-
 .image-flash {
     background-color: var(--vanilla);
     opacity: 77%;
@@ -328,12 +341,6 @@ h3 {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-}
-
-.card-title a:hover,
-.card-title a:active,
-.card-title a:focus {
-    text-decoration: none;
 }
 
 .card-text {
@@ -361,7 +368,6 @@ h3 {
     width: 100%;
     border-radius: 12px;
     padding-top: 66.67%;
-
     overflow: hidden;
 }
 
@@ -372,7 +378,7 @@ h3 {
     transition: transform 0.5s ease;
 }
 
-.image-container:hover img {
+.image-container:hover .aspect-ratio-3-2 {
     transform: scale(1.1);
 }
 
