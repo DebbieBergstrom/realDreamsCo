@@ -258,35 +258,52 @@ When creating the database structure schema for this project, I utilized the [db
 ### `User Profiles` Table
 - Contains extended information for user accounts.
 - Fields: `id`, `user_id`, `default_phone_number`, `default_street_address1`, `default_street_address2`, `default_town_or_city`, `default_county`, `default_postcode`, `default_country`, `preferred_contact_method`, `date_of_birth`, `newsletter_subscription`, `preferred_dreamcenter`, `created_at`.
+- Links one-to-one with the Users table via user_id.
 
 ### `Categories` Table
-- Holds the categorization for products or services offered.
+- Holds the categorization for products/ dream services offered.
 - Fields: `category_id`, `name`, `description`, `friendly_name`.
+- Links many-to-one with the category_id to product_id.
+
+### `Dream Center` Table
+- Designed to represent various locations where products (dream packages) are available.
+- Fields: `dream_center_id`, `name`, `location`, `description`.
+- Establishes a many-to-many relationship with Products, facilitated through ManyToMany field setup.
 
 ### `Products` Table
-- Stores information about the products available for purchase.
-- Fields: `product_id`, `category_id`, `name`, `slug`, `description`, `price`, `size`, `duration`, `image_url`, `image`, `available`, `created_at`.
+- Central to the e-commerce functionality, listing all items available for purchase. Stores information about the products available for purchase.
+- Fields: `product_id`, `category_id`, `name`, `slug`, `description`, `price`, `size`, `duration`, `dream_center`, `image_url`, `image`, `available`, `created_at`.
+
+### ` ProductDreamCenter`  Table (Join Table)
+- This table is automatically generated to facilitate the many-to-many relationship between Products (Dreams) and DreamCenters.
+- It acts as a join table, containing only foreign keys that reference the primary keys (product_id and dream_center_id) of the Products and DreamCenters tables, respectively.
 
 ### `Orders` Table
-- Records details of transactions and customer orders.
+- Tracks customer purchases, including order details, customer contact information, and financial summaries.
 - Fields: `order_number`, `user_profile_id`, `full_name`, `email`, `phone_number`, `country`, `date`, `order_total`, `original_cart`, `stripe_pid`.
+- Linked to User Profiles through user_profile_id, establishing a many-to-one relationship.
 
 ### `Order Line Items` Table
-- Details individual items within an order.
+- Details the specific products and quantities within each order.
 - Fields: `id`, `order_id`, `product_id`, `quantity`, `lineitem_total`.
+- Maintains many-to-one relationships with both Orders and Products tables through order_id and product_id, respectively.
 
 ### `Contacts` Table
-- Manages contact information and inquiries from users.
+- Manages communications from users, storing subjects, messages, and contact details.
 - Fields: `contact_id`, `subject`, `email`, `phone_number`, `message`, `created_at`.
 
 ### `Health Status` Table
-- Records health-related information and considerations for users.
+- Collects health-related data from users for safety and personalized experience considerations.
 - Fields: `id`, `user_profile_id`, `has_epilepsy`, `has_heart_conditions`, `has_mental_illness`, `suffers_from_ptsd`, `additional_information`, `last_updated`, `declaration_truthful`, `created_at`.
 
 ### Database Relationships
-- user_profiles.user_id > users.user_id // OneToOne
-
 - products.category_id > categories.category_id // ManyToOne
+
+- product_dream_centers.product_id > products.product_id // ManyToOne
+
+- product_dream_centers.dream_center_id > dream_centers.dream_center_id // ManyToOne
+
+- user_profiles.user_id > users.user_id // OneToOne
 
 - orders.user_profile_id > user_profiles.id // ManyToOne
 
@@ -294,7 +311,7 @@ When creating the database structure schema for this project, I utilized the [db
 
 - order_line_items.product_id > products.product_id // ManyToOne
 
-- health_statuses.user_profile_id > user_profiles.id // OneToOne
+- health_status.user_profile_id > user_profiles.id // OneToOne
 
 
 <br>
