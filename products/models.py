@@ -1,6 +1,19 @@
 from django.db import models
 from django.utils.text import slugify
 
+
+class DreamCenter(models.Model):
+    name = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name_plural = "Dream Centers"
+
+    def __str__(self):
+        return f"{self.name} - {self.location}"
+
+
 class Category(models.Model):
     """
     Model representing various dream product categories.
@@ -27,6 +40,7 @@ class Product(models.Model):
     )
 
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    dream_center = models.ManyToManyField(DreamCenter, related_name='products')
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, unique=True, blank=True)
     description = models.TextField()

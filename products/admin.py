@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category
+from .models import Product, Category, DreamCenter
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -15,6 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     prepopulated_fields = {"slug": ("name",)}
     ordering = ('name',)
+    list_filter = ('available', 'category', 'dream_center', 'size',)
 
     def get_category_friendly_name(self, obj):
         return obj.category.friendly_name if obj.category else '-'
@@ -26,6 +27,15 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
         'friendly_name',
     )
+    
+class DreamCenterAdmin(admin.ModelAdmin):
+    list_display = (
+        'name', 
+        'location',
+    )
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(DreamCenter, DreamCenterAdmin)
+
+
