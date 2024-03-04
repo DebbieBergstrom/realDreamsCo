@@ -336,7 +336,7 @@ h3 {
 .card-title {
     color: var(--delft-blue);
     font-family: 'Righteous';
-    font-size: 12px;
+    font-size: 0.8rem;
     margin-bottom: 0.5rem;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -380,6 +380,31 @@ h3 {
 
 .image-container:hover .aspect-ratio-3-2 {
     transform: scale(1.1);
+}
+
+.max-width-500 {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-title {
+    color: var(--white);
+    font-family: 'Righteous';
+    font-size: 1.6rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fade 1s ease-in-out 1s forwards;
+    pointer-events: none;
+    opacity: 0;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.fade-in-product {
+    animation: fade 1s ease-in-out 1s forwards;
+    pointer-events: none;
+    opacity: 0;
 }
 
 /* ------------------------------------------MEDIA QUERIES***/

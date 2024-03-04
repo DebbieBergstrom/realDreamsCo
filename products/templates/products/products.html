@@ -14,10 +14,10 @@
 {% block body_class %}products-background{% endblock %}
 {% block content %}
 <!-- <div class="overlay"></div> -->
-<div class="container-fluid">
+<div class="container-fluid fade-in-product">
     <div class="row">
-        <div class="col text-center mt-4 display-1 products-header">
-            <h1 class="text-black d-block d-md-inline m-3">
+        <div class="col text-center mt-4 product-title products-header">
+            <h1 class="d-block d-md-inline m-3 isplay-1">
                 <span class="real-font">All real</span><span
                     class="dreams-font-righteous">Dreams</h1>
             <hr class="w-50">
@@ -32,7 +32,8 @@
                     <div class="card">
                         <div class="card-body card-body-bg">
                             <!-- Image and link to product detail -->
-                            <a href="" class="image-container-link">
+                            <a href="{% url 'product_detail' product.id %}"
+                                class="image-container-link">
                                 <div class="image-container">
                                     {% if product.image %}
                                     <img class="card-img-top img-fluid aspect-ratio-3-2"
