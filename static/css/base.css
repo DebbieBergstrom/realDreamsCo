@@ -203,20 +203,46 @@ h3 {
 }
 
 .nav-link {
-    font-family: 'Poiret One',
-        sans-serif;
+    font-family: 'Poiret One', sans-serif;
     color: var(--delft-blue);
     font-weight: 900;
-    padding: 0.1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .navbar .nav-link {
     color: var(--black) !important;
-
 }
 
 .nav-link:hover {
-    color: #293042;
+    color: #1c213a;
+    cursor: pointer;
+}
+
+.navbar .nav-link {
+    color: var(--black) !important;
+}
+
+.sort-nav-link {
+    font-family: 'Poiret One', sans-serif;
+    color: var(--delft-blue);
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease-in-out;
+}
+
+.sort-nav-link:hover,
+.sort-nav-link:focus,
+.sort-nav-link.active {
+    color: #1c213a;
+    cursor: pointer;
+    border-radius: 20% / 50%;
+    width: fit-content;
+    padding: 0.3rem;
+    transform: scale(1.05);
+}
+
+.sort-nav-link.active {
+    animation: glow 3s infinite ease-in-out 1s forwards;
 }
 
 .fa-user:hover,
@@ -411,6 +437,15 @@ h3 {
 
 .product-descr {
     color: var(--delft-blue);
+}
+
+.sort-by {
+    font-family: 'Poiret One',
+        sans-serif;
+    color: var(--delft-blue);
+    font-size: 1.5rem;
+    padding: 0.1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* ------------------------------------------MEDIA QUERIES***/

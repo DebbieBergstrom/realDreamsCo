@@ -6,28 +6,15 @@
                 Home
             </a>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link mr-5" href="#" id="all-dreams-link"
-                data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                Sort realDreams
-            </a>
-            <div class="dropdown-menu border-0"
-                aria-labelledby="all-dreams-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Dream Size</a>
-                <a href="" class="dropdown-item ">By Category</a>
-                <a href="" class="dropdown-item ">By Dream Center</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All
-                    realDreams</a>
-            </div>
+        <li class="nav-item">
+            <a class="nav-link mr-5" href="{% url 'products' %}"
+                id="categories-link">realDreams</a>
         </li>
-
         <li class="nav-item dropdown">
             <a class="nav-link mr-5" href="#" id="categories-link"
                 data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                Categories
+                Our Categories
             </a>
             <div class="dropdown-menu border-0"
                 aria-labelledby="categories-link">
