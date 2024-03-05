@@ -11,93 +11,105 @@
 </div>
 {% endblock %}
 
-{% block body_class %}products-background{% endblock %}
+{% block body_class %}viewport-cover{% endblock %}
 {% block content %}
 <!-- <div class="overlay"></div> -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col text-center mt-4 product-title products-header">
+        <div class="col text-center m-4 product-title products-header">
             <h1 class="d-block d-md-inline m-3 fade-in-product">
                 <span class="real-font">real</span><span
                     class="dreams-font-righteous">Dreams</h1>
-            <hr class="w-50">
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 mt-3 text-center">
-                <!-- Sort By Paragraph -->
-                <p class="mb-3 sort-by">
-                    Sort by:
-                </p>
-            </div>
-            <div class="col-12">
-                <div class="d-flex justify-content-center flex-wrap">
-                    <!-- Sorting Links -->
-                    <a href="{% url 'products' %}"
-                        class="mx-2 sort-nav-link {% if current_sorting == '' %}active{% endif %}">All</a>
-                    <a href="{% url 'products' %}?sort=price&direction=asc"
-                        class="mx-2 sort-nav-link
-                        {% if current_sorting == 'price_asc' %}active{% endif %}">Price
-                        Low-Hi</a>
-                    <a href="{% url 'products' %}?sort=size&direction=asc"
-                        class="mx-2 sort-nav-link {% if current_sorting == 'size_asc' %}active{% endif %}">Size
-                        S-L</a>
-                    <a href="{% url 'products' %}?sort=category&direction=desc"
-                        class="mx-2 sort-nav-link {% if current_sorting == 'category_desc' %}active{% endif %}">Category</a>
+    <!-- Wrapping div for both sorting and products sections -->
+    <div class="product-card-bg m-3">
+        <!-- Sorting Section -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mt-3">
+                    <!-- Sort By Paragraph -->
+                    <p class="mb-3 sort-by">
+                        Sort by:
+                    </p>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<div class="row justify-content-center">
-    <div class="product-container col-10 mt-4">
-        <div class="row mt-1 mb-2"></div>
-        <div class="row">
-            {% for product in products %}
-            <div class="col-xl-3 col-md-4 col-sm-6 mb-4 fade-in-product">
-                <div class="card">
-                    <div class="card-body card-body-bg">
-                        <!-- Image and link to product detail -->
-                        <a href="{% url 'product_detail' product.id %}"
-                            class="image-container-link">
-                            <div class="image-container">
-                                {% if product.image %}
-                                <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                    src="{{ product.image.url }}"
-                                    alt="{{ product.name }} Image">
-                                {% else %}
-                                <!-- Fallback image if product.image is not available -->
-                                <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                    src="{% static 'sparkling_dreams.webp' %}"
-                                    alt="Default Image">
-                                {% endif %}
-                                <h2 class="image-flash card-title mt-4">
-                                    {{ product.name }}
-                                </h2>
-                            </div>
-                        </a>
-                        <!-- Product details -->
-                        <hr class="hr-card">
-                        <div class="card-text p-2">
-                            <p class="category"><i
-                                    class="fa-solid fa-layer-group"></i>
-                                {{ product.category.get_friendly_name }}
-                            </p>
-                            <p class="ml-1">
-                                € {{ product.price }} | Size:
-                                {{ product.get_size_display }}
-                            </p>
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <!-- Sorting Links -->
+                        <div class="col-6 col-md-auto mb-2 text-center">
+                            <a href="{% url 'products' %}"
+                                class="sort-nav-link {% if current_sorting == '' %}active{% endif %}">All</a>
+                        </div>
+                        <div class="col-6 col-md-auto mb-2 text-center">
+                            <a href="{% url 'products' %}?sort=price&direction=asc"
+                                class="sort-nav-link {% if current_sorting == 'price_asc' %}active{% endif %}">Price
+                                Low-Hi</a>
+                        </div>
+                        <div class="col-6 col-md-auto mb-2 text-center">
+                            <a href="{% url 'products' %}?sort=size&direction=asc"
+                                class="sort-nav-link {% if current_sorting == 'size_asc' %}active{% endif %}">Size
+                                S-L</a>
+                        </div>
+                        <div class="col-6 col-md-auto mb-2 text-center">
+                            <a href="{% url 'products' %}?sort=category&direction=desc"
+                                class="sort-nav-link {% if current_sorting == 'category_desc' %}active{% endif %}">Category</a>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+        </div>
+
+
+        <!-- Products Display Section -->
+        <div class="row justify-content-center p-1">
+            <div class="product-container col-10 mt-4">
+                <div class="row mt-2">
+                    {% for product in products %}
+                    <div
+                        class="col-xl-3 col-md-4 col-sm-6 mb-4 fade-in-product">
+                        <div class="card">
+                            <div class="card-body card-body-bg">
+                                <!-- Image and link to product detail -->
+                                <a href="{% url 'product_detail' product.id %}"
+                                    class="image-container-link">
+                                    <div class="image-container">
+                                        {% if product.image %}
+                                        <img class="card-img-top img-fluid aspect-ratio-3-2"
+                                            src="{{ product.image.url }}"
+                                            alt="{{ product.name }} Image">
+                                        {% else %}
+                                        <!-- Fallback image if product.image is not available -->
+                                        <img class="card-img-top img-fluid aspect-ratio-3-2"
+                                            src="{% static 'sparkling_dreams.webp' %}"
+                                            alt="Default Image">
+                                        {% endif %}
+                                        <h2
+                                            class="image-flash card-title mt-4">
+                                            {{ product.name }}
+                                        </h2>
+                                    </div>
+                                </a>
+                                <!-- Product details -->
+                                <hr class="hr-card">
+                                <div class="card-text p-2">
+                                    <p class="category"><i
+                                            class="fa-solid fa-layer-group"></i>
+                                        {{ product.category.get_friendly_name }}
+                                    </p>
+                                    <p class="ml-1">
+                                        € {{ product.price }} | Size:
+                                        {{ product.get_size_display }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
+
 </div>
-</div>
+
 {% endblock %}
