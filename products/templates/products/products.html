@@ -37,9 +37,12 @@
                     <a href="{% url 'products' %}"
                         class="mx-2 sort-nav-link {% if current_sorting == '' %}active{% endif %}">All</a>
                     <a href="{% url 'products' %}?sort=price&direction=asc"
-                        class="mx-2 sort-nav-link {% if current_sorting == 'price_asc' %}active{% endif %}">Price</a>
+                        class="mx-2 sort-nav-link
+                        {% if current_sorting == 'price_asc' %}active{% endif %}">Price
+                        Low-Hi</a>
                     <a href="{% url 'products' %}?sort=size&direction=asc"
-                        class="mx-2 sort-nav-link {% if current_sorting == 'size_asc' %}active{% endif %}">Size</a>
+                        class="mx-2 sort-nav-link {% if current_sorting == 'size_asc' %}active{% endif %}">Size
+                        S-L</a>
                     <a href="{% url 'products' %}?sort=category&direction=desc"
                         class="mx-2 sort-nav-link {% if current_sorting == 'category_desc' %}active{% endif %}">Category</a>
                 </div>
