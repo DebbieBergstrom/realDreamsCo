@@ -77,14 +77,17 @@
                         </div>
                     </div>
                     <hr>
-                    <p class="text-muted">This realDream can be enjoyed in
+                    <p class="text-muted text-center">This realDream can be
+                        enjoyed in
                         center(s):</p>
-                    <ul class="text-muted">
+                    <ul class="text-muted dreamcenter-padding">
                         {% for center in product.dream_center.all %}
                         <li>{{ center.name }}</li>
                         {% endfor %}
                     </ul>
-                    <p class="mt-3">{{ product.description }}</p>
+                    <p class="p-1 mt-3 product-descr">
+                        {{ product.description|linebreaksbr }}
+                    </p>
                 </div>
             </div>
         </div>
