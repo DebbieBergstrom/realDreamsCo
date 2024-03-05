@@ -67,10 +67,6 @@ h3 {
         sans-serif;
 }
 
-.text-black {
-    color: black;
-}
-
 /* logo fonts */
 .real-font {
     font-family: 'Poiret One',
@@ -209,6 +205,7 @@ h3 {
 .nav-link {
     font-family: 'Poiret One',
         sans-serif;
+    color: var(--delft-blue);
     font-weight: 900;
     padding: 0.1rem;
 }
@@ -219,7 +216,7 @@ h3 {
 }
 
 .nav-link:hover {
-    color: var(--delft-blue);
+    color: #293042;
 }
 
 .fa-user:hover,
@@ -406,6 +403,14 @@ h3 {
 .fade-in-product {
     animation: fade 0.5s ease-in-out 0.5s forwards;
     opacity: 0;
+}
+
+.dreamcenter-padding {
+    padding-left: 8.5rem;
+}
+
+.product-descr {
+    color: var(--delft-blue);
 }
 
 /* ------------------------------------------MEDIA QUERIES***/
