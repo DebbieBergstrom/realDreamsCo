@@ -1,7 +1,10 @@
 # realDreams Co.
 
 'realDreams Co.' Where dreams become real adventures! 
-Dream & grow with unforgettable memories.
+
+Welcome to realDreams Co., the premier online destination where your quest for extraordinary dream experiences becomes a reality. Our innovative e-commerce platform offers a wide selection of dream packages, allowing users to choose adventures to relive epic historical events, explore the underwater worlds or try out the most adrenaline pumping activities they never dared to try. 
+Choose your dream, select one of our specialized Dream Centers located in Stockholm, Berlin, or Paris, and embark on a journey unlike any other.
+At realDreams Co., we're more than just an e-commerce site; we're your gateway to exploring new realms of possibility. Dive into the future of dreaming with realDreams Co., where every experience opens the door to a world where dreams and reality converge.
 
 <center> 
 
