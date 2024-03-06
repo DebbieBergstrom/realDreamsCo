@@ -194,6 +194,15 @@ h3 {
 
 /* ------------------------------------------NAVBAR***/
 
+.bg-consult-banner {
+    background: var(--delft-blue) !important;
+}
+
+.bg-consult-banner h4 {
+    font-size: 1.2rem;
+}
+
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -239,7 +248,7 @@ h3 {
     line-height: 1.1;
     padding: 10px 0;
     font-size: 5rem;
-    margin-top: 5rem !important;
+    margin-top: 8rem !important;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
