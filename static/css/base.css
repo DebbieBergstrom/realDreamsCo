@@ -26,16 +26,16 @@ body.default-background {
 }
 
 
-/* .overlay {
+.overlay {
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
     position: fixed;
-    background: #f3c8d9;
+    background: #253c7447;
     opacity: 70%;
     z-index: -1;
-} */
+}
 
 /* --- BASE FONT SIZE & styles for SMALLER mobile devices --- */
 html {
