@@ -68,7 +68,7 @@
             <div
                 class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h1 class="text-black d-block d-md-inline my-0">
+                    <h1 class="d-block d-md-inline my-0">
                         <span class="real-font">real</span><span
                             class="dreams-font-righteous">Dreams
                             Co.</h1>
@@ -96,9 +96,9 @@
                 <ul
                     class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#"
-                            id="user-options" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" id="user-options"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i>
                                 </div>
@@ -129,8 +129,7 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="{% url 'view_cart' %}">
+                        <a class="nav-link" href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <div><i class="fa-solid fa-cart-shopping"></i>
                                 </div>
@@ -148,7 +147,7 @@
             </div>
         </div>
         <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100 text-black">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
                 <button class="navbar-toggler" type="button"
                     data-toggle="collapse" data-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false"

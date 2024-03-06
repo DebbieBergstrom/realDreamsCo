@@ -217,6 +217,7 @@ h3 {
     font-family: 'Poiret One', sans-serif;
     color: var(--delft-blue);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 0 !important;
 }
 
 .navbar .nav-link {
@@ -521,6 +522,10 @@ h3 {
         margin-top: -170px;
         line-height: 0.8;
         margin-bottom: 24px;
+    }
+
+    .navbar {
+        margin-right: 6rem !important;
     }
 }
 
