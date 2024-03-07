@@ -13,7 +13,6 @@
 
 {% block body_class %}viewport-cover{% endblock %}
 {% block content %}
-<!-- <div class="overlay"></div> -->
 <div class="container-fluid" id="top">
     <div class="row">
         <div class="col text-center m-4 product-title products-header">
@@ -34,23 +33,23 @@
                     </p>
                 </div>
                 <div class="col-12">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center p-2">
                         <!-- Sorting Links -->
-                        <div class="col-6 col-md-auto mb-2 text-center">
+                        <div class="col-6 col-md-auto mb-2 px-0 text-center">
                             <a href="{% url 'products' %}"
                                 class="sort-nav-link {% if current_sorting == '' %}active{% endif %}">All</a>
                         </div>
-                        <div class="col-6 col-md-auto mb-2 text-center">
+                        <div class="col-6 col-md-auto mb-2 px-0 text-left">
                             <a href="{% url 'products' %}?sort=price&direction=asc"
                                 class="sort-nav-link {% if current_sorting == 'price_asc' %}active{% endif %}">Price
                                 Low-Hi</a>
                         </div>
-                        <div class="col-6 col-md-auto mb-2 text-center">
+                        <div class="col-6 col-md-auto mb-2 text-right">
                             <a href="{% url 'products' %}?sort=size&direction=asc"
                                 class="sort-nav-link {% if current_sorting == 'size_asc' %}active{% endif %}">Size
                                 S-L</a>
                         </div>
-                        <div class="col-6 col-md-auto mb-2 text-center">
+                        <div class="col-6 col-md-auto mb-2 text-left">
                             <a href="{% url 'products' %}?sort=category&direction=desc"
                                 class="sort-nav-link {% if current_sorting == 'category_desc' %}active{% endif %}">Category</a>
                         </div>
