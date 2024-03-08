@@ -1,3 +1,5 @@
+/* ---CART CSS ONLY ***/
+
 .cart-bg {
     background-color: #e6e6e6ad;
     border-radius: 4px;
@@ -11,4 +13,33 @@
 
 .input-group {
     width: 80px;
+}
+
+.sort-nav-link {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 0.4rem;
+    margin: 0.1rem;
+    transition: transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.sort-nav-link:hover,
+.sort-nav-link:focus {
+    color: #cfcfce;
+    cursor: pointer;
+    border-radius: 50% / 50%;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.sort-nav-link.active {
+    color: #cfcfce;
+    cursor: pointer;
+    border-radius: 50% / 50%;
+    text-decoration: none;
+    transform: scale(1.05);
+    animation: glow 3s infinite ease-in-out 1s forwards;
 }
