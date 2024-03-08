@@ -1,4 +1,3 @@
-from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
@@ -27,11 +26,12 @@ def cart_contents(request):
             'subtotal': subtotal,
         })
 
+    free_consultation_delta = settings.FREE_CONSULTATION_THRESHOLD - total
+    consultation = 0
+
     if total < settings.FREE_CONSULTATION_THRESHOLD:
-        consultation = settings.FIXED_CONSULTATION_COST if total + settings.FIXED_CONSULTATION_COST < settings.FREE_CONSULTATION_THRESHOLD else 0
-        free_consultation_delta = settings.FREE_CONSULTATION_THRESHOLD - total
+        consultation = settings.FIXED_CONSULTATION_COST
     else:
-        consultation = 0
         free_consultation_delta = 0
 
     grand_total = total + consultation
@@ -41,9 +41,10 @@ def cart_contents(request):
         'total': total,
         'product_count': product_count,
         'consultation': consultation,
-        'free_consultation_delta': max(0, free_consultation_delta),  # Ensure it doesn't go negative
+        'free_consultation_delta': max(0, free_consultation_delta),
         'free_consultation_threshold': settings.FREE_CONSULTATION_THRESHOLD,
         'grand_total': grand_total,
     }
 
     return context
+
