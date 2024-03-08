@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
@@ -5,18 +6,18 @@ from products.models import Product
 
 def cart_contents(request):
     """
-    Compile the contents of the shopping cart, including subtotal for each item, total cost, 
-    and consultation fee if applicable. Determines the grand total and the amount needed to 
-    reach the free consultation threshold.
+    Compile the contents of the shopping cart, including subtotal for each item, total cost,
+    and consultation fee if applicable. Determines the grand total and the amount needed to
+    reach the free consultation threshold, or indicates qualification for free consultation.
     """
     cart_items = []
-    total = 0
+    total = Decimal('0.00')
     product_count = 0
     cart = request.session.get('cart', {})
 
     for item_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=item_id)
-        subtotal = round(quantity * product.price)
+        subtotal = quantity * product.price
         total += subtotal
         product_count += quantity
         cart_items.append({
@@ -26,13 +27,15 @@ def cart_contents(request):
             'subtotal': subtotal,
         })
 
+    consultation = settings.FIXED_CONSULTATION_COST
     free_consultation_delta = settings.FREE_CONSULTATION_THRESHOLD - total
-    consultation = 0
 
-    if total < settings.FREE_CONSULTATION_THRESHOLD:
-        consultation = settings.FIXED_CONSULTATION_COST
+    # Logic to account for free consultation qualification
+    if total >= settings.FREE_CONSULTATION_THRESHOLD:
+        consultation = Decimal('0.00')
+        free_consultation_message = "You qualified for a free consultation!"
     else:
-        free_consultation_delta = 0
+        free_consultation_message = f"Spend just €{free_consultation_delta} more to qualify for a free consultation!"
 
     grand_total = total + consultation
 
@@ -41,10 +44,8 @@ def cart_contents(request):
         'total': total,
         'product_count': product_count,
         'consultation': consultation,
-        'free_consultation_delta': max(0, free_consultation_delta),
-        'free_consultation_threshold': settings.FREE_CONSULTATION_THRESHOLD,
+        'free_consultation_message': free_consultation_message,
         'grand_total': grand_total,
     }
 
     return context
-

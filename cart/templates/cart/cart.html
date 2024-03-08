@@ -111,30 +111,24 @@
                             </td>
                         </tr>
                         {% endfor %}
-
+                        <!-- Calculate Total Amount with consultation fee message -->
                         <tr>
                             <td colspan="5" class="pt-4 text-right">
                                 <h6><strong>Total amount:
-                                        €{{ total|floatformat:2 }}</strong>
+                                        €{{ total|floatformat:"2" }}</strong>
                                 </h6>
-                                <!-- If there's a consultation fee -->
-                                {% if consultation > 0 %}
                                 <h6>Consultation:
-                                    €{{ consultation|floatformat:2 }}</h6>
-                                {% endif %}
-                                <h4 class="my-2"><strong>Grand Total:
-                                        €{{ grand_total|floatformat:2 }}</strong>
-                                </h4>
-                                <!-- Shows how much more needs to be spent for free consultation, if applicable -->
-                                {% if free_consultation_delta > 0 %}
-                                <p class="mb-1 text-danger">
-                                    Spend just
-                                    €{{ free_consultation_delta|floatformat:2 }}
-                                    more to qualify for a free consultation!
+                                    €{{ consultation|floatformat:"2" }}</h6>
+                                <p
+                                    class="mb-1 {% if consultation == 0 %}text-success{% else %}text-danger{% endif %}">
+                                    {{ free_consultation_message }}
                                 </p>
-                                {% endif %}
+                                <h4 class="my-2"><strong>Grand Total:
+                                        €{{ grand_total|floatformat:"2" }}</strong>
+                                </h4>
                             </td>
                         </tr>
+
                         <tr class="border-1">
                             <td colspan="5" class="text-right">
                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-2 p-1
