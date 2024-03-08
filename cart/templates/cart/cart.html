@@ -11,7 +11,6 @@
 
 {% block body_class %}viewport-cover{% endblock %}
 {% block content %}
-<!-- Wrapping div for both sorting and products sections -->
 
 <div class="container mb-2 pt-5">
     <div class="row">
@@ -59,10 +58,43 @@
                                     €{{ item.product.price }}</p>
                             </td>
                             <td class="py-3 w-25 text-center">
-                                <p class="my-0">{{ item.quantity }}</p>
+                                <form
+                                    action="{% url 'update_cart' item.product.id %}"
+                                    method="POST" class="w-100">
+                                    {% csrf_token %}
+                                    <div
+                                        class="justify-content-between align-items-center">
+                                        <div class="">
+                                            <!-- Quantity Selector on its own row -->
+                                            <input type="number"
+                                                name="quantity"
+                                                value="{{ item.quantity }}"
+                                                min="1" max="99"
+                                                class="form-control-sm"
+                                                style="width: auto; max-width: 60px;">
+                                        </div>
+                                        <div
+                                            class="d-flex justify-content-center">
+                                            <!-- Update Button to the Left -->
+                                            <button
+                                                class="btn btn-outline-secondary btn-sm"
+                                                type="submit" title="Update">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </button>
+                                            <!-- Remove Button to the Right -->
+                                            <a href="{% url 'remove_from_cart' item.product.id %}"
+                                                class="btn btn-outline-danger btn-sm"
+                                                role="button" title="Remove">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
                             </td>
-                            <td class="py-3">
-                                <p class="my-0">€{{ item.product.price }}</p>
+
+                            <td class="py-3 text-white"
+                                id="item-subtotal-{{ item.product.id }}">
+                                €{{ item.subtotal }}
                             </td>
                         </tr>
                         {% endfor %}
@@ -71,17 +103,20 @@
                                 <h6><strong>Total amount:
                                         €{{ total|floatformat:2 }}</strong>
                                 </h6>
-                                <h6>Delivery: €{{ delivery|floatformat:2 }}
-                                </h6>
+                                <!-- If there's a consultation fee -->
+                                {% if consultation > 0 %}
+                                <h6>Consultation:
+                                    €{{ consultation|floatformat:2 }}</h6>
+                                {% endif %}
                                 <h4 class="my-4"><strong>Grand Total:
                                         €{{ grand_total|floatformat:2 }}</strong>
                                 </h4>
-                                {% if free_delivery_delta > 0 %}
+                                <!-- Shows how much more needs to be spent for free consultation, if applicable -->
+                                {% if free_consultation_delta > 0 %}
                                 <p class="mb-1 text-danger">
-                                    You could get free delivery by spending
-                                    just
-                                    <strong>€{{ free_delivery_delta }}</strong>
-                                    more!
+                                    Spend just
+                                    €{{ free_consultation_delta|floatformat:2 }}
+                                    more to qualify for a free consultation!
                                 </p>
                                 {% endif %}
                             </td>
@@ -108,13 +143,12 @@
                     </table>
                 </div>
                 {% else %}
-                <p class="lead mb-5">Your cart is empty.</p>
+                <p class="lead mb-5 text-white">Your cart is empty.</p>
                 <a href="{% url 'products' %}"
-                    class="btn btn-outline-black rounded-0 btn-lg">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Keep Shopping</span>
+                    class="btn btn-outline-black rounded-2 p-1 small">
+                    <i class="fas fa-chevron-left text-white"></i><span
+                        class="sort-nav-link">Shop
+                        more</span>
                 </a>
                 {% endif %}
             </div>
