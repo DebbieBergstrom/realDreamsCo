@@ -33,9 +33,9 @@ def cart_contents(request):
     # Logic to account for free consultation qualification
     if total >= settings.FREE_CONSULTATION_THRESHOLD:
         consultation = Decimal('0.00')
-        free_consultation_message = "You qualified for a free consultation!"
+        free_consultation_message = "Free consultation earned!"
     else:
-        free_consultation_message = f"Spend just €{free_consultation_delta} more to qualify for a free consultation!"
+        free_consultation_message = f"€{free_consultation_delta} away from a free consultation!"
 
     grand_total = total + consultation
 

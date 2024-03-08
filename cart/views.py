@@ -51,11 +51,16 @@ def remove_from_cart(request, item_id):
     """Remove the specified product from the shopping cart."""
     try:
         cart = request.session.get('cart', {})
-        cart.pop(str(item_id), None)
-        request.session['cart'] = cart
-        messages.success(request, "Item removed from your cart.")
+        if str(item_id) in cart:
+            product = get_object_or_404(Product, pk=item_id)  # Fetch the product before removing it
+            cart.pop(str(item_id), None)
+            request.session['cart'] = cart
+            messages.success(request, f"{product.name} has been removed from your cart.")
+        else:
+            messages.error(request, "The item was not found in your cart.")
     except KeyError:
-        messages.error(request, "The item couldn't be removed from your cart.")
+        messages.error(request, "There was an error removing the item from your cart.")
         return redirect(request.META.get('HTTP_REFERER', 'view_cart'))
 
     return redirect('view_cart')
+
