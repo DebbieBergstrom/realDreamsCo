@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+{% endblock %}
+
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -14,21 +19,21 @@
 
 <div class="container mb-2 pt-5">
     <div class="row">
-        <div class="col mt-5 text-center text-white">
+        <div class="col mt-5 text-center dispaly-md-2">
             <hr>
-            <h2 class="logo-font mb-4 mt-5">Shopping cart</h2>
+            <h2 class="cart-heading mb-4 mt-5">Shopping cart</h2>
         </div>
     </div>
 </div>
 
-<div class="product-card-bg mx-1 mb-5">
+<div class="cart-bg mx-1 mb-5">
     <div class="container">
         <div class="row">
             <div class="col">
                 {% if cart_items %}
-                <div class="table-responsive rounded pt-4 text-white">
-                    <table class="table table-sm table-borderless text-white">
-                        <thead class="text-white">
+                <div class="table-responsive rounded pt-4">
+                    <table class="table table-sm table-borderless">
+                        <thead>
                             <tr class="text-center">
                                 <th scope="col"></th>
                                 <th scope="col">realDream</th>
@@ -45,16 +50,16 @@
                                     src="{{ item.product.image.url }}">
                             </td>
                             <td class="py-3">
-                                <p class="my-0 text-white">
+                                <p class="my-0">
                                     <strong>{{ item.product.name }}</strong>
                                 </p>
-                                <p class="my-0 small">Size:
+                                <p class="my-0 small text-muted">Size:
                                     {{ item.product.size|upper }}</p>
-                                <p class="my-0 small">Duration:
+                                <p class="my-0 small text-muted">Duration:
                                     {{ item.product.duration|upper }}</p>
                             </td>
                             <td class="py-3">
-                                <p class="my-0 text-white">
+                                <p class="my-0">
                                     €{{ item.product.price }}</p>
                             </td>
                             <td class="py-3 w-25 text-center">
@@ -77,13 +82,13 @@
                                             class="d-flex justify-content-center">
                                             <!-- Update Button to the Left -->
                                             <button
-                                                class="btn btn-outline-secondary btn-sm"
+                                                class="btn text-muted btn-sm"
                                                 type="submit" title="Update">
                                                 <i class="fas fa-sync-alt"></i>
                                             </button>
                                             <!-- Remove Button to the Right -->
                                             <a href="{% url 'remove_from_cart' item.product.id %}"
-                                                class="btn btn-outline-danger btn-sm"
+                                                class="btn text-muted btn-sm"
                                                 role="button" title="Remove">
                                                 <i class="fas fa-trash"></i>
                                             </a>
@@ -92,14 +97,14 @@
                                 </form>
                             </td>
 
-                            <td class="py-3 text-white"
+                            <td class="py-3 text-right"
                                 id="item-subtotal-{{ item.product.id }}">
                                 €{{ item.subtotal }}
                             </td>
                         </tr>
                         {% endfor %}
                         <tr>
-                            <td colspan="5" class="pt-3 text-right">
+                            <td colspan="5" class="pt-4 text-right">
                                 <h6><strong>Total amount:
                                         €{{ total|floatformat:2 }}</strong>
                                 </h6>
@@ -108,7 +113,7 @@
                                 <h6>Consultation:
                                     €{{ consultation|floatformat:2 }}</h6>
                                 {% endif %}
-                                <h4 class="my-4"><strong>Grand Total:
+                                <h4 class="my-2"><strong>Grand Total:
                                         €{{ grand_total|floatformat:2 }}</strong>
                                 </h4>
                                 <!-- Shows how much more needs to be spent for free consultation, if applicable -->
@@ -123,10 +128,9 @@
                         </tr>
                         <tr class="border-1">
                             <td colspan="5" class="text-right">
-                                <a href="{% url 'products' %}"
-                                    class="btn btn-outline-black rounded-2 p-1 small">
-                                    <i
-                                        class="fas fa-chevron-left text-white"></i><span
+                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-2 p-1
+                                    text-white small">
+                                    <i class="fas fa-chevron-left"></i><span
                                         class="sort-nav-link">Shop
                                         more</span>
                                 </a>
@@ -143,10 +147,10 @@
                     </table>
                 </div>
                 {% else %}
-                <p class="lead mb-5 text-white">Your cart is empty.</p>
+                <p class="lead mb-5">Your cart is empty.</p>
                 <a href="{% url 'products' %}"
                     class="btn btn-outline-black rounded-2 p-1 small">
-                    <i class="fas fa-chevron-left text-white"></i><span
+                    <i class="fas fa-chevron-left"></i><span
                         class="sort-nav-link">Shop
                         more</span>
                 </a>
