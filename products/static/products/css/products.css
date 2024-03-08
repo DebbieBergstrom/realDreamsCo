@@ -1,15 +1,7 @@
 /* ---PRODUCTS CSS ONLY ***/
 
-@media (max-width: 768px) {
-
-    .btn-decrement,
-    .btn-increment {
-        font-size: 1.5rem;
-        /* Larger font size for mobile */
-    }
-
-    .qty_input {
-        height: 50px;
-        /* Larger input field for mobile */
-    }
+.input-group {
+    width: 8.2em;
+    background-color: black;
+    border-radius: 4px;
 }

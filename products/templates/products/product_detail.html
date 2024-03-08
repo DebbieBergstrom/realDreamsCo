@@ -18,7 +18,6 @@
 {% block body_class %}viewport-cover{% endblock %}
 {% block content %}
 <div class="container-fluid mt-5">
-    <!-- Wrapping div for all content-->
     <div class="product-card-bg my-3">
         <div class="row justify-content-center max-width-500">
             <div class="col-12 mx-auto">
@@ -42,9 +41,9 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="container">
+            <div class="container-products w-100 p-3">
                 <div class="row">
-                    <div class="col-12 max-width-500 mx-auto">
+                    <div class="col-12 mx-auto">
                         <!-- Product Details Section -->
                         <div class="product-details-container mb-1">
                             <h2 class="product-title text-center">
@@ -100,41 +99,36 @@
                                     {{ product.description|linebreaksbr }}
                                 </p>
                                 <!-- Quantity selection -->
-                                <div class="col-12">
-                                    <form class="form"
+                                <div class="col-12 mt-4">
+                                    <form
+                                        class="form d-flex flex-column align-items-end"
                                         action="{% url 'add_to_cart' product.id %}"
                                         method="POST">
                                         {% csrf_token %}
-                                        <div class="form-group mt-3">
-                                            <label
-                                                for="id_qty_{{ product.id }}"><strong>Quantity:</strong></label>
-                                            <div class="input-group"
-                                                style="width: 30%;">
-                                                <div
-                                                    class="input-group-prepend">
-                                                    <!-- Minus button -->
-                                                    <button
-                                                        class="btn btn-decrement text-white"
-                                                        type="button">
-                                                        <i
-                                                            class="fas fa-minus"></i>
-                                                    </button>
-                                                </div>
-                                                <input
-                                                    class="form-control qty_input text-center"
-                                                    type="text" name="quantity"
-                                                    value="1" min="1" max="99"
-                                                    id="id_qty_{{ product.id }}">
-                                                <div
-                                                    class="input-group-append">
-                                                    <!-- Plus button -->
-                                                    <button
-                                                        class="btn btn-increment text-white"
-                                                        type="button">
-                                                        <i
-                                                            class="fas fa-plus"></i>
-                                                    </button>
-                                                </div>
+                                        <p class="mb-1">Quantity</p>
+                                        <div
+                                            class="input-group input-group-sm mb-2">
+                                            <div class="input-group-prepend">
+                                                <button
+                                                    class="btn btn-outline-secondary btn-decrement text-white"
+                                                    type="button"
+                                                    data-item-id="{{ product.id }}">
+                                                    <i
+                                                        class="fas fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <input type="number"
+                                                name="quantity" value="1"
+                                                min="1" max="9"
+                                                class="form-control text-center"
+                                                id="id_qty_{{ product.id }}">
+                                            <div class="input-group-append">
+                                                <button
+                                                    class="btn btn-outline-secondary btn-increment text-white"
+                                                    type="button"
+                                                    data-item-id="{{ product.id }}">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
                                             </div>
                                         </div>
 
@@ -151,7 +145,6 @@
                                                     class="sort-nav-link p-1">Shop
                                                     more</span>
                                             </a>
-                                            <!-- Move the submit button inside the form -->
                                             <button type="submit"
                                                 class="btn btn-black rounded-2 p-1 text-uppercase">
                                                 <span class="icon">
@@ -164,7 +157,6 @@
                                             name="redirect_url"
                                             value="{{ request.path }}">
                                     </form>
-                                    <!-- Ensure this closing tag wraps everything inside the form, including the 'Add to Cart' button -->
                                 </div>
                             </div>
                         </div>
@@ -179,22 +171,33 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
-    document.querySelector('.btn-decrement').addEventListener('click',
-        function () {
-            var input = this.parentNode.parentNode.querySelector(
-                'input[type=text]');
-            var value = parseInt(input.value, 10);
-            if (value > 1) {
-                input.value = value - 1;
-            }
-        });
+    /**
+     * Handles increment and decrement functionality for quantity selectors.
+     * Ensures quantity does not go below 1 or above 9.
+     * Applicable to all items identified by a unique data-item-id.
+     */
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.btn-decrement, .btn-increment')
+            .forEach(button => {
+                button.addEventListener('click', function () {
+                    const itemId = this.getAttribute(
+                        'data-item-id');
+                    const input = document.querySelector(
+                        `#id_qty_${itemId}`);
+                    let currentValue = parseInt(input
+                        .value, 10);
 
-    document.querySelector('.btn-increment').addEventListener('click',
-        function () {
-            var input = this.parentNode.parentNode.querySelector(
-                'input[type=text]');
-            var value = parseInt(input.value, 10);
-            input.value = value + 1;
-        });
+                    if (this.classList.contains(
+                            'btn-decrement') &&
+                        currentValue > 1) {
+                        input.value = currentValue - 1;
+                    } else if (this.classList.contains(
+                            'btn-increment') &&
+                        currentValue < 9) {
+                        input.value = currentValue + 1;
+                    }
+                });
+            });
+    });
 </script>
 {% endblock %}
