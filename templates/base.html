@@ -170,7 +170,21 @@
 
     {% if messages %}
     <!-- Conditional block to display messages if they exist -->
-    <div class="message-container"></div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block page_header %}
@@ -182,8 +196,15 @@
     {% endblock %}
 
     {% block postloadjs %}
-    <!-- Block for JavaScript that needs to be loaded after the main content -->
+    <script type="text/javascript">
+        $('.toast').toast({
+            autohide: true,
+            delay: 3000
+        }).toast('show');
+    </script>
     {% endblock %}
+
+
 
 
 </body>

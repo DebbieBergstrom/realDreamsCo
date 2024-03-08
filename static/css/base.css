@@ -85,6 +85,7 @@ h3 {
     border-top: 1px solid rgba(189, 186, 186, 0.54);
 }
 
+
 /* ------------------------------------------LANDING PAGE w/ LOGO ***/
 
 .viewport-cover {
@@ -302,6 +303,22 @@ h3 {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
+/* ------------------------------------------BOOTSTRAP TOASTS ***/
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
 
 /* ------------------------------------------MEDIA QUERIES***/
 
