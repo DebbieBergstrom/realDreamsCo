@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block extra_title %} - All Dreams {% endblock %}
 
 {% block page_header %}
@@ -46,53 +50,53 @@
                             <h2 class="product-title text-center">
                                 {{ product.name }}
                             </h2>
-                            <h3 class="mb2 text-center text-muted small"><i
+                            <h3 class="mb2 text-center text-white small"><i
                                     class="fa-solid fa-layer-group"></i>
                                 {{ product.category.get_friendly_name }}
                             </h3>
-                            <hr>
+                            <hr class="hr-line-white">
                             <div class="fade-in-product mt-3">
                                 <div
-                                    class="row align-items-center text-muted text-center">
+                                    class="row align-items-center text-white text-center">
                                     <div class="col">
                                         <p class="lead mb-0"><i
                                                 class="fa-solid fa-euro-sign muted"></i><br>
                                             {{ product.price }}</p>
                                     </div>
-                                    <div class="col text-muted">
+                                    <div class="col text-white">
                                         <p class="lead mb-0">
                                             Size:<br>{{ product.size }}
                                         </p>
                                     </div>
                                     <div class="col">
                                         {% if product.available %}
-                                        <span class="text-muted"><i
+                                        <span class="text-white"><i
                                                 class="fa-solid fa-check "
                                                 style="color:
                                     green;"></i><br>Available</span>
                                         {% else %}
-                                        <span class="text-muted"><i
+                                        <span class="text-white"><i
                                                 class="fa-solid fa-times"
                                                 style="color: red;"></i><br>Not
                                             Available</span>
                                         {% endif %}
                                     </div>
                                     <div class="col">
-                                        <span class="text-muted"><i
+                                        <span class="text-white"><i
                                                 class="fa-solid fa-stopwatch fa-2x pr-1"></i>{{ product.duration }}</span>
                                     </div>
                                 </div>
-                                <hr>
-                                <p class="text-muted text-center">This
+                                <hr class="hr-line-white">
+                                <p class="text-white text-center">This
                                     realDream can be
                                     enjoyed in
                                     center(s):</p>
-                                <ul class="text-muted dreamcenter-padding">
+                                <ul class="text-white dreamcenter-padding">
                                     {% for center in product.dream_center.all %}
                                     <li>{{ center.name }}</li>
                                     {% endfor %}
                                 </ul>
-                                <p class="p-1 mt-3 product-descr">
+                                <p class="p-1 mt-3 text-white">
                                     {{ product.description|linebreaksbr }}
                                 </p>
                                 <!-- Quantity selection -->
@@ -104,13 +108,36 @@
                                         <div class="form-group mt-3">
                                             <label
                                                 for="id_qty_{{ product.id }}"><strong>Quantity:</strong></label>
-                                            <input
-                                                class="form-control qty_input w-50"
-                                                type="number" name="quantity"
-                                                value="1" min="1" max="99"
-                                                data-item_id="{{ product.id }}"
-                                                id="id_qty_{{ product.id }}">
+                                            <div class="input-group"
+                                                style="width: 30%;">
+                                                <div
+                                                    class="input-group-prepend">
+                                                    <!-- Minus button -->
+                                                    <button
+                                                        class="btn btn-decrement text-white"
+                                                        type="button">
+                                                        <i
+                                                            class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                <input
+                                                    class="form-control qty_input text-center"
+                                                    type="text" name="quantity"
+                                                    value="1" min="1" max="99"
+                                                    id="id_qty_{{ product.id }}">
+                                                <div
+                                                    class="input-group-append">
+                                                    <!-- Plus button -->
+                                                    <button
+                                                        class="btn btn-increment text-white"
+                                                        type="button">
+                                                        <i
+                                                            class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <!-- Buttons 'Shop More' & 'Add to Cart' -->
                                         <div
                                             class="form-group d-flex justify-content-between align-items-center mt-4">
@@ -124,6 +151,7 @@
                                                     class="sort-nav-link p-1">Shop
                                                     more</span>
                                             </a>
+                                            <!-- Move the submit button inside the form -->
                                             <button type="submit"
                                                 class="btn btn-black rounded-2 p-1 text-uppercase">
                                                 <span class="icon">
@@ -136,6 +164,7 @@
                                             name="redirect_url"
                                             value="{{ request.path }}">
                                     </form>
+                                    <!-- Ensure this closing tag wraps everything inside the form, including the 'Add to Cart' button -->
                                 </div>
                             </div>
                         </div>
@@ -145,4 +174,27 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    document.querySelector('.btn-decrement').addEventListener('click',
+        function () {
+            var input = this.parentNode.parentNode.querySelector(
+                'input[type=text]');
+            var value = parseInt(input.value, 10);
+            if (value > 1) {
+                input.value = value - 1;
+            }
+        });
+
+    document.querySelector('.btn-increment').addEventListener('click',
+        function () {
+            var input = this.parentNode.parentNode.querySelector(
+                'input[type=text]');
+            var value = parseInt(input.value, 10);
+            input.value = value + 1;
+        });
+</script>
 {% endblock %}
