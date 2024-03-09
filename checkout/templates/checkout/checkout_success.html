@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<!-- additional CSS-->
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="my-4">Checkout Successful!</h2>
+            <p class="lead">Thank you for your purchase. Your order number is
+                <strong>{{ order_number }}</strong>.</p>
+            <p>We'll be in touch with updates on your order's progress.</p>
+            <a href="{% url 'products' %}"
+                class="btn btn-primary mt-4">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+<!-- Additional JavaScript  -->
+{% endblock %}
