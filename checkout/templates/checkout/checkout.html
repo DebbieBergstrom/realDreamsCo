@@ -16,26 +16,28 @@
 
 {% block body_class %}viewport-cover{% endblock %}
 {% block content %}
+
 <div class="container mb-2 pt-5">
     <div class="row">
-        <div class="col mt-5 text-center dispaly-md-2">
-            <hr>
-            <h2 class="cart-heading mb-4 mt-5">Shopping cart</h2>
+        <div class="col mt-5">
         </div>
     </div>
 </div>
 
-<div class="cart-bg mx-1 mb-5">
+<div class="checkout-bg mx-1 mb-5">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6 order-lg-last mb-5">
-                <p class="text-muted">Order Summary ({{ product_count }})</p>
+            <div
+                class="col-12 col-lg-6 order-lg-last text center mt-5 mb-5 pt-3">
+                <p class="checkout-heading small">Order Summary
+                    ({{ product_count }})
+                </p>
                 <div class="row">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted">Item</p>
+                        <p class="mb-1 mt-0 small">Item</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                        <p class="mb-1 mt-0 small">Subtotal</p>
                     </div>
                 </div>
                 {% for item in cart_items %}
@@ -82,12 +84,13 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Please fill out the form below to
+                <p class="pl-3 pt-3">Please fill out the form below
+                    to
                     complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST"
                     id="payment-form">
                     {% csrf_token %}
-                    <fieldset class="rounded px-3 mb-5">
+                    <fieldset class="rounded-1 px-3 mb-5">
                         <legend
                             class="fieldset-label small text-black px-2 w-auto">
                             Details</legend>
@@ -134,14 +137,15 @@
 
                     <div class="submit-button text-right mt-5 mb-2">
                         <a href="{% url 'view_cart' %}"
-                            class="btn btn-outline-black rounded-1">
+                            class="btn btn-outline-black rounded-2">
                             <span class="icon"><i
                                     class="fas fa-chevron-left"></i></span>
-                            <span class="font-weight-bold">Update Cart</span>
+                            <span class="back-to-cart">Back to
+                                Cart</span>
                         </a>
                         <button id="submit-button"
                             class="btn btn-black rounded-1">
-                            <span class="font-weight-bold">Complete
+                            <span class="text-uppercase">Complete
                                 Order</span>
                             <span class="icon"><i
                                     class="fas fa-lock"></i></span>

@@ -1,3 +1,40 @@
+/* ---CHECKOUT CSS ONLY ***/
+
+.checkout-bg {
+    background-color: #e6e6e6ad;
+    border-radius: 4px;
+    position: relative
+}
+
+.checkout-heading {
+    color: white;
+    font-size: 2.4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.back-to-cart {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 0.4rem;
+    margin: 0.1rem;
+    transition: transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.back-to-cart:hover,
+.back-to-cart:focus {
+    color: #fafaef;
+    cursor: pointer;
+    border-radius: 50% / 50%;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+
+/* -----------------------------------STRIPE PAYMENTS ***/
+
 .StripeElement,
 .stripe-style-input {
     box-sizing: border-box;
