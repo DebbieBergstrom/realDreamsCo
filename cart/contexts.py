@@ -32,14 +32,20 @@ def cart_contents(request):
     consultation = settings.FIXED_CONSULTATION_COST
     free_consultation_delta = settings.FREE_CONSULTATION_THRESHOLD - total
 
-    # Logic to account for free consultation qualification
-    if total >= settings.FREE_CONSULTATION_THRESHOLD:
-        consultation = Decimal("0.00")
-        free_consultation_message = "Free consultation earned!"
-    else:
+    consultation = Decimal("0.00")
+
+    # Calculate consultation fee only if the cart is not empty and total is below the threshold
+    if total > 0 and total < settings.FREE_CONSULTATION_THRESHOLD:
+        consultation = settings.FIXED_CONSULTATION_COST
+        free_consultation_delta = settings.FREE_CONSULTATION_THRESHOLD - total
         free_consultation_message = (
             f"€{free_consultation_delta} away from a free consultation!"
         )
+    elif total >= settings.FREE_CONSULTATION_THRESHOLD:
+        free_consultation_message = "Free consultation earned!"
+    else:
+        #  If cart is empty, no consultation fee is added
+        free_consultation_message = f"Spend €{settings.FREE_CONSULTATION_THRESHOLD} to earn a free consultation!"
 
     grand_total = total + consultation
 
