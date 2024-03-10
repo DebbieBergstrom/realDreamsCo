@@ -210,5 +210,9 @@ if "USE_AWS" in os.environ:
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Stripe
 FREE_CONSULTATION_THRESHOLD = 500
 FIXED_CONSULTATION_COST = 100
+STRIPE_CURRENCY = "usd"
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
