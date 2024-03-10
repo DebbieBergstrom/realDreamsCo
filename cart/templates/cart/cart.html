@@ -178,7 +178,7 @@
             button.addEventListener('click', function () {
                 const itemId = this.getAttribute('data-item-id');
                 const input = document.querySelector(
-                    `#id_qty_€{itemId}`);
+                    `#id_qty_${itemId}`);
                 let value = parseInt(input.value, 10);
                 if (this.classList.contains('btn-decrement') &&
                     value > 1) {
