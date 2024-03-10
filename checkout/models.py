@@ -21,6 +21,8 @@ class Order(models.Model):
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label="Country *", null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
+    original_cart = models.TextField(null=False, blank=False, default="")
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
     consultation_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0
     )
