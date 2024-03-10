@@ -28,12 +28,12 @@
 
 .sort-nav-link:hover,
 .sort-nav-link:focus {
+    color: #fafaef;
     cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     border-radius: 50% / 50%;
     text-decoration: none;
     transform: scale(1.05);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    outline: none;
 }
 
 .sort-nav-link.active {

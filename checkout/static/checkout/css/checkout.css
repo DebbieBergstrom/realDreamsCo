@@ -16,7 +16,7 @@
     font-family: 'Poiret One', sans-serif;
     font-size: 1.5rem;
     color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     padding: 0.4rem;
     margin: 0.1rem;
     transition: transform 0.3s,
@@ -27,6 +27,7 @@
 .back-to-cart:focus {
     color: #fafaef;
     cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     border-radius: 50% / 50%;
     text-decoration: none;
     transform: scale(1.05);
