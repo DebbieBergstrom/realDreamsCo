@@ -59,7 +59,7 @@
                             {{ item.quantity }}</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="my-0 small text-muted">${{ item.subtotal }}
+                        <p class="my-0 small text-muted">€{{ item.subtotal }}
                         </p>
                     </div>
                 </div>
@@ -72,11 +72,11 @@
                         <p class="my-0">Grand Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ order_total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ order_total | floatformat:2 }}</p>
                         <p class="my-0">
-                            ${{ consultation_cost | floatformat:2 }}</p>
+                            €{{ consultation_cost | floatformat:2 }}</p>
                         <p class="my-0">
-                            <strong>${{ grand_total | floatformat:2 }}</strong>
+                            <strong>€{{ grand_total | floatformat:2 }}</strong>
                         </p>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                             <span class="icon"><i
                                     class="fas fa-exclamation-circle"></i></span>
                             <span>Your card will be charged
-                                <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                                <strong>€{{ grand_total|floatformat:2 }}</strong></span>
                         </p>
                     </div>
                 </form>
