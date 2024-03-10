@@ -43,3 +43,12 @@
     transform: scale(1.05);
     animation: glow 3s infinite ease-in-out 1s forwards;
 }
+
+/* ------------------------------------------MEDIA QUERIES***/
+
+/* --- LARGE devices (desktops, 992px and up) --- */
+@media (min-width: 992px) {
+    .quantity-lg {
+        width: 100px;
+    }
+}
