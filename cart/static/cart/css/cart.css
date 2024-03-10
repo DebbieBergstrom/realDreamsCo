@@ -19,7 +19,7 @@
     font-family: 'Poiret One', sans-serif;
     font-size: 1.5rem;
     color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     padding: 0.4rem;
     margin: 0.1rem;
     transition: transform 0.3s,
@@ -28,15 +28,15 @@
 
 .sort-nav-link:hover,
 .sort-nav-link:focus {
-    color: #cfcfce;
     cursor: pointer;
     border-radius: 50% / 50%;
     text-decoration: none;
     transform: scale(1.05);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    outline: none;
 }
 
 .sort-nav-link.active {
-    color: #cfcfce;
     cursor: pointer;
     border-radius: 50% / 50%;
     text-decoration: none;
