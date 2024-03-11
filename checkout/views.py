@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views.decorators.http import require_POST
+from django.http import HttpResponse
 from django.contrib import messages
 from django.conf import settings
 
@@ -29,8 +30,7 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(
             request,
-            "Sorry, your payment cannot be \
-            processed right now. Please try again later.",
+            "Sorry, your payment cannot be processed right now. Please try again later.",
         )
         return HttpResponse(content=e, status=400)
 
@@ -44,6 +44,9 @@ def checkout(request):
 
     if request.method == "POST":
         cart = request.session.get("cart", {})
+        if not cart:
+            messages.error(request, "There's nothing in your cart at the moment.")
+            return redirect(reverse("products"))
 
         form_data = {
             "full_name": request.POST["full_name"],
@@ -54,10 +57,20 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            pid = request.POST.get("client_secret").split("_secret")[0]
-            order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             order.save()
+
+            stripe.api_key = stripe_secret_key
+            stripe_total = round(cart_contents(request)["grand_total"] * 100)
+            intent = stripe.PaymentIntent.create(
+                amount=stripe_total,
+                currency=settings.STRIPE_CURRENCY,
+                metadata={
+                    "cart": json.dumps(cart),
+                    "save_info": request.POST.get("save_info"),
+                },
+            )
+
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -86,6 +99,7 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse("view_cart"))
+
             request.session["save_info"] = "save-info" in request.POST
             return redirect(reverse("checkout_success", args=[order.order_number]))
         else:
@@ -109,24 +123,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-    if request.method == "POST":
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            # Process payment and complete order
-            # Assuming a function `process_payment` exists and returns a success indicator and order instance
-            success, order = process_payment(form.cleaned_data, cart)
-            if success:
-                messages.success(request, "Your order has been successfully processed!")
-                # Clear the cart
-                request.session["cart"] = {}
-                # Redirect to a success page, passing the order number for reference
-                return redirect(reverse("checkout_success", args=[order.order_number]))
-            else:
-                messages.error(
-                    request, "There was an issue with your payment. Please try again."
-                )
-    else:
-        form = OrderForm()
+    form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(
