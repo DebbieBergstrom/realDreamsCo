@@ -249,6 +249,32 @@ h3 {
     color: var(--delft-blue);
 }
 
+/* ------------------------------------------LOGIN PAGE***/
+
+.allauth-heading {
+    font-family: 'Poiret One',
+        sans-serif;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.btn-home {
+    font-family: 'Poiret One', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.btn-home:hover,
+.btn-home:focus {
+    color: #fafaef;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    border-radius: 50% / 50%;
+    text-decoration: none;
+    transform: scale(1.08);
+}
+
 /* ------------------------------------------HOME PAGE***/
 .slogan {
     line-height: 1.1;
