@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserProfile
+from .models import UserProfile, HealthStatus
 from django.utils.translation import gettext_lazy as _
 
 
@@ -39,3 +39,35 @@ class UserProfileForm(forms.ModelForm):
             "border-black rounded-0 profile-form-input"
         )
         self.fields["default_country"].label = False
+
+
+class HealthStatusForm(forms.ModelForm):
+    class Meta:
+        model = HealthStatus
+        fields = [
+            "has_epilepsy",
+            "has_heart_conditions",
+            "has_mental_illness",
+            "suffers_from_ptsd",
+            "additional_information",
+            "declaration_truthful",
+        ]
+        widgets = {
+            "has_epilepsy": forms.RadioSelect(choices=((False, "No"), (True, "Yes"))),
+            "has_heart_conditions": forms.RadioSelect(
+                choices=((False, "No"), (True, "Yes"))
+            ),
+            "has_mental_illness": forms.RadioSelect(
+                choices=((False, "No"), (True, "Yes"))
+            ),
+            "suffers_from_ptsd": forms.RadioSelect(
+                choices=((False, "No"), (True, "Yes"))
+            ),
+            "additional_information": forms.Textarea(attrs={"rows": 4}),
+            "declaration_truthful": forms.CheckboxInput(),
+        }
+        labels = {
+            "declaration_truthful": _(
+                "I confirm that the information provided is true and accurate to the best of my knowledge."
+            )
+        }

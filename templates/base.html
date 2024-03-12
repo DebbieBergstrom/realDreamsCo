@@ -111,20 +111,25 @@
                             aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                            <a href="" class="dropdown-item"><i
-                                    class="fas fa-solid fa-gears"></i> Product
+                            <a href="{% url 'profile' %}"
+                                class="dropdown-item"><i
+                                    class="fas fa-solid fa-gears"></i> Site
                                 Management</a>
                             {% endif %}
-                            <a href="" class="dropdown-item"><i
+                            <a href="{% url 'profile' %}"
+                                class="dropdown-item"><i
                                     class="fa-user-circle"></i> My
                                 Profile</a>
-                            <a href="" class="dropdown-item"><i
+                            <a href="{% url 'account_logout' %}"
+                                class="dropdown-item"><i
                                     class="fa-sign-out-alt"></i> Logout</a>
                             {% else %}
-                            <a href="" class="dropdown-item"><i
+                            <a href="{% url 'account_signup' %}"
+                                class="dropdown-item"><i
                                     class="fas fa-user-friends"></i>
                                 Register</a>
-                            <a href="" class="dropdown-item"><i
+                            <a href="{% url 'account_login' %}"
+                                class="dropdown-item"><i
                                     class="fa-solid fa-right-to-bracket"></i>
                                 Login</a>
                             {% endif %}
