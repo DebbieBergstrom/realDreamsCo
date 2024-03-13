@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 class UserProfileForm(forms.ModelForm):
     """
     Form for updating user profile information. This form allows users to update
-    their default delivery information and preferences. It includes fields for
+    their default information and preferences. It includes fields for
     contact details, address, preferred contact method, and dream center selection.
     """
 
@@ -78,7 +78,7 @@ class HealthStatusForm(forms.ModelForm):
             "suffers_from_ptsd": forms.RadioSelect(
                 choices=((False, "No"), (True, "Yes"))
             ),
-            "additional_information": forms.Textarea(attrs={"rows": 4}),
+            "additional_information": forms.Textarea(attrs={"rows": 2}),
             "declaration_truthful": forms.CheckboxInput(),
         }
         labels = {
