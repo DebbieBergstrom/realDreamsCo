@@ -16,7 +16,9 @@ def profile(request):
             profile_form = UserProfileForm(request.POST, instance=user_profile)
             if profile_form.is_valid():
                 profile_form.save()
-                messages.success(request, "Profile updated successfully")
+                messages.success(
+                    request, "Profile updated successfully", extra_tags="profile-update"
+                )
         # Handle health status form submission
         elif "submit_health_status_form" in request.POST:
             health_status, _ = HealthStatus.objects.get_or_create(
@@ -25,7 +27,11 @@ def profile(request):
             health_status_form = HealthStatusForm(request.POST, instance=health_status)
             if health_status_form.is_valid():
                 health_status_form.save()
-                messages.success(request, "Health status updated successfully")
+                messages.success(
+                    request,
+                    "Health status updated successfully",
+                    extra_tags="health_status_update",
+                )
         return redirect(reverse("profile"))
     else:
         profile_form = UserProfileForm(instance=user_profile)
