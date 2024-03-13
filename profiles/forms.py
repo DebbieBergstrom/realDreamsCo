@@ -4,12 +4,21 @@ from django.utils.translation import gettext_lazy as _
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    Form for updating user profile information. This form allows users to update
+    their default delivery information and preferences. It includes fields for
+    contact details, address, preferred contact method, and dream center selection.
+    """
+
     class Meta:
         model = UserProfile
         exclude = ("user",)
         widgets = {
             "preferred_dreamcenter": forms.RadioSelect,
             "preferred_contact_method": forms.RadioSelect,
+            "date_of_birth": forms.DateInput(
+                attrs={"type": "date", "placeholder": "YYYY-MM-DD"}
+            ),
         }
 
     def __init__(self, *args, **kwargs):
@@ -21,6 +30,7 @@ class UserProfileForm(forms.ModelForm):
             "default_town_or_city": "Town or City",
             "default_county": "County, State or Locality",
             "default_postcode": "Postal Code",
+            "country": "Country",
         }
 
         self.fields["default_phone_number"].widget.attrs["autofocus"] = True
@@ -35,13 +45,18 @@ class UserProfileForm(forms.ModelForm):
                 )
                 self.fields[field].label = False
 
-        self.fields["default_country"].widget.attrs["class"] = (
-            "border-black rounded-0 profile-form-input"
-        )
-        self.fields["default_country"].label = False
+        if "country" in self.fields:
+            self.fields["country"].widget.attrs["class"] = (
+                "border-black rounded-0 profile-form-input"
+            )
+            self.fields["country"].label = False
 
 
 class HealthStatusForm(forms.ModelForm):
+    """
+    Form for updating user health status.
+    """
+
     class Meta:
         model = HealthStatus
         fields = [

@@ -1,24 +1,43 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
+from django.contrib import messages
 from .models import UserProfile, HealthStatus
-from .forms import HealthStatusForm
+from .forms import UserProfileForm, HealthStatusForm
 
 
 def profile(request):
-    """Display the user's profile and health status."""
-    profile = get_object_or_404(UserProfile, user=request.user)
-    health_status, created = HealthStatus.objects.get_or_create(user_profile=profile)
+    """Display the user's profile, health status, and order history."""
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    orders = user_profile.orders.all()
 
     if request.method == "POST":
-        form = HealthStatusForm(request.POST, instance=health_status)
-        if form.is_valid():
-            form.save()
+        # Handle profile form submission
+        if "submit_profile_form" in request.POST:
+            profile_form = UserProfileForm(request.POST, instance=user_profile)
+            if profile_form.is_valid():
+                profile_form.save()
+                messages.success(request, "Profile updated successfully")
+        # Handle health status form submission
+        elif "submit_health_status_form" in request.POST:
+            health_status, _ = HealthStatus.objects.get_or_create(
+                user_profile=user_profile
+            )
+            health_status_form = HealthStatusForm(request.POST, instance=health_status)
+            if health_status_form.is_valid():
+                health_status_form.save()
+                messages.success(request, "Health status updated successfully")
+        return redirect(reverse("profile"))
     else:
-        form = HealthStatusForm(instance=health_status)
+        profile_form = UserProfileForm(instance=user_profile)
+        health_status, _ = HealthStatus.objects.get_or_create(user_profile=user_profile)
+        health_status_form = HealthStatusForm(instance=health_status)
 
     template = "profiles/profile.html"
     context = {
-        "profile": profile,
-        "health_status_form": form,
+        "profile_form": profile_form,
+        "health_status_form": health_status_form,
+        "orders": orders,
+        "on_profile_page": True,
     }
 
     return render(request, template, context)
