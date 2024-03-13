@@ -78,12 +78,12 @@
                         <p class="my-0">€{{ total|floatformat:"2" }}</p>
                         <p class="my-0">
                             €{{ consultation|floatformat:"2" }}</p>
-                        <p
-                            class="mb-1 {% if consultation == 0 %}text-success{% else %}text-danger{% endif %}">
-                            {{ free_consultation_message }}
-                        </p>
                         <p class="my-0">
                             <strong>€{{ grand_total|floatformat:"2" }}</strong>
+                        </p>
+                        <p
+                            class="mb-1 small {% if consultation == 0 %}text-success{% else %}text-danger{% endif %}">
+                            {{ free_consultation_message }}
                         </p>
                     </div>
                 </div>
