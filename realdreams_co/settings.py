@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "")
 DEBUG = os.environ.get("DEVELOPMENT", "False") == "True"
 
 ALLOWED_HOSTS = [
-    "8000-debbiebergs-realdreamsc-xaty8v124z0.ws-eu108.gitpod.io",
+    "8000-debbiebergs-realdreamsc-xaty8v124z0.ws-eu109.gitpod.io",
     "real-dreams-co-a66bd587b968.herokuapp.com",
     "localhost",
     "127.0.0.1",
@@ -123,6 +123,8 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_REDIRECT_URL = "home"
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
