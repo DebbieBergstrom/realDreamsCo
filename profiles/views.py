@@ -13,10 +13,10 @@ def profile(request):
 
     if request.method == "POST":
         # Handle profile form submission
-        if "submit_profile_form" in request.POST:
-            profile_form = UserProfileForm(request.POST, instance=user_profile)
-            if profile_form.is_valid():
-                profile_form.save()
+        if "submit_user_profile_form" in request.POST:
+            user_profile_form = UserProfileForm(request.POST, instance=user_profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
                 messages.success(
                     request, "Profile updated successfully", extra_tags="profile-update"
                 )
@@ -35,13 +35,13 @@ def profile(request):
                 )
         return redirect(reverse("profile"))
     else:
-        profile_form = UserProfileForm(instance=user_profile)
+        user_profile_form = UserProfileForm(instance=user_profile)
         health_status, _ = HealthStatus.objects.get_or_create(user_profile=user_profile)
         health_status_form = HealthStatusForm(instance=health_status)
 
     template = "profiles/profile.html"
     context = {
-        "profile_form": profile_form,
+        "user_profile_form": user_profile_form,
         "health_status_form": health_status_form,
         "orders": orders,
         "on_profile_page": True,
