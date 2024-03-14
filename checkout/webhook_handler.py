@@ -2,6 +2,7 @@ from django.http import HttpResponse
 
 from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.models import UserProfile
 
 import json
 import time
@@ -33,6 +34,16 @@ class StripeWH_Handler:
         billing_details = intent.charges.data[0].billing_details
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
+        # Update profile information if save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != "AnonymousUser":
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = billing_details.phone
+                profile.default_country = billing_details.address.country
+                profile.save()
+
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -54,22 +65,26 @@ class StripeWH_Handler:
                 status=200,
             )
         else:
+            order = None
             try:
                 order = Order.objects.create(
                     full_name=billing_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
                     grand_total=grand_total,
                     original_cart=cart,
                     stripe_pid=pid,
                 )
-                for item_id, quantity in json.loads(cart).items():
+                for item_id, item_data in json.loads(cart).items():
                     product = Product.objects.get(id=item_id)
-                    OrderLineItem.objects.create(
-                        order=order,
-                        product=product,
-                        quantity=quantity,
-                    )
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
@@ -81,3 +96,10 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200,
         )
+
+
+def handle_payment_intent_payment_failed(self, event):
+    """
+    Handle the payment_intent.payment_failed webhook from Stripe
+    """
+    return HttpResponse(content=f'Webhook received: {event["type"]}', status=200)
