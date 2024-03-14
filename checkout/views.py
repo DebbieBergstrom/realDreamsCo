@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
-from django.http import HttpResponse
 from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 from cart.contexts import cart_contents
 
 import stripe
@@ -100,7 +101,7 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse("view_cart"))
 
-            request.session["save_info"] = "save-info" in request.POST
+            request.session["save_info"] = "save_info" in request.POST
             return redirect(reverse("checkout_success", args=[order.order_number]))
         else:
             messages.error(
@@ -123,7 +124,22 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-    form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(
+                    initial={
+                        "full_name": profile.user.get_full_name()
+                        or profile.user.username,
+                        "email": request.user.email,
+                        "phone_number": profile.default_phone_number,
+                        "country": profile.country,
+                    }
+                )
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(
@@ -134,7 +150,7 @@ def checkout(request):
 
     template = "checkout/checkout.html"
     context = {
-        "order_form": form,
+        "order_form": order_form,
         "stripe_public_key": stripe_public_key,
         "client_secret": intent.client_secret,
     }
@@ -148,11 +164,27 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get("save_info")
     order = get_object_or_404(Order, order_number=order_number)
+
+    profile = UserProfile.objects.get(user=request.user)
+    # Attach the user's profile to the order
+    order.user_profile = profile
+    order.save()
+
+    # Save the user's info
+    if save_info:
+        profile_data = {
+            "default_phone_number": order.phone_number,
+            "default_country": order.country,
+        }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+
     messages.success(
         request,
         f"Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.",
+        A confirmation email will be \
+        sent to {order.email}.",
     )
 
     if "cart" in request.session:
