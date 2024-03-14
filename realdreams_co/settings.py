@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "")
 DEBUG = os.environ.get("DEVELOPMENT", "False") == "True"
 
 ALLOWED_HOSTS = [
-    "8000-debbiebergs-realdreamsc-xaty8v124z0.ws-eu109.gitpod.io",
+    "8000-debbiebergs-realdreamsc-xaty8v124z0.ws-eu110.gitpod.io",
     "real-dreams-co-a66bd587b968.herokuapp.com",
     "localhost",
     "127.0.0.1",
