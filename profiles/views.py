@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import UserProfile, HealthStatus
 from .forms import UserProfileForm, HealthStatusForm
 from checkout.models import Order
 
 
+@login_required
 def profile(request):
     """Display the user's profile, health status, and order history."""
     user_profile = get_object_or_404(UserProfile, user=request.user)
