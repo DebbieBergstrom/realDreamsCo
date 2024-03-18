@@ -18,11 +18,12 @@
                 <h2 class="product-title mb-3 mt-4 text-center text-white">
                     Product
                     Management</h2>
-                <h3 class="text-white text-center">Add a realDream</h3>
+                <h3 class="text-white text-center">Edit realDream</h3>
             </div>
 
             <div class="col-12 col-md-10">
-                <form method="POST" action="{% url 'add_product' %}"
+                <form method="POST"
+                    action="{% url 'edit_product' product.id %}"
                     class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
@@ -30,7 +31,7 @@
                         <a class="btn btn-outline-black rounded-0"
                             href="{% url 'products' %}">Cancel</a>
                         <button class="btn btn-black rounded-0"
-                            type="submit">Add Item</button>
+                            type="submit">Update</button>
                     </div>
                 </form>
             </div>
