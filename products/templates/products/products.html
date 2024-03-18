@@ -19,7 +19,7 @@
 {% block content %}
 <div class="container-fluid" id="top">
     <div class="row">
-        <div class="col text-center m-4 product-title products-header">
+        <div class="col text-center p-4 product-title products-header">
             <h1 class="d-block d-md-inline m-3">
                 <span class="real-font">real</span><span
                     class="dreams-font-righteous">Dreams</h1>
@@ -38,7 +38,7 @@
                 <div class="col-12">
                     <div class="row justify-content-center p-2">
                         <!-- Sorting Links -->
-                        <div class="col-6 col-md-auto mb-2 px-0 text-center">
+                        <div class="col-6 col-md-auto mb-2 text-right pr-5">
                             <a href="{% url 'products' %}"
                                 class="sort-nav-link {% if current_sorting == '' %}active{% endif %}">All</a>
                         </div>
