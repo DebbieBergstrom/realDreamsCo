@@ -84,7 +84,6 @@ class StripeWH_Handler:
             )
         else:
             order = None
-            print("hejhej")
             try:
                 order = Order.objects.create(
                     full_name=billing_details.name,
