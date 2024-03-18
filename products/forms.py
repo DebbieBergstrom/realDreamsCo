@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Product, Category, DreamCenter
 
 
@@ -9,6 +10,7 @@ class ProductForm(forms.ModelForm):
         exclude = ("slug",)
         widgets = {
             "dream_center": forms.CheckboxSelectMultiple,
+            "image": CustomClearableFileInput,
         }
 
     def __init__(self, *args, **kwargs):

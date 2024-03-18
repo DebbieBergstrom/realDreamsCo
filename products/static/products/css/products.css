@@ -167,3 +167,30 @@
     transform: scale(1.05);
     animation: glow 3s infinite ease-in-out 1s forwards;
 }
+
+/* Products Form */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 0;
+}

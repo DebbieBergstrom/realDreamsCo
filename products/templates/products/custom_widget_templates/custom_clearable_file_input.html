@@ -1,0 +1,43 @@
+<div class="widget-wrapper">
+    {% if widget.is_initial %}
+    <div class="initial-preview mb-3">
+        <p>{{ widget.initial_text }}:</p>
+        <a href="{{ widget.value.url }}">
+            <img width="86" height="86" class="rounded shadow-sm"
+                src="{{ widget.value.url }}">
+        </a>
+    </div>
+
+    {% if not widget.required %}
+    <div class="custom-checkbox-wrapper mt-2 mb-3">
+        <div class="custom-control custom-checkbox">
+            <input class="custom-control-input" type="checkbox"
+                name="{{ widget.checkbox_name }}"
+                id="{{ widget.checkbox_id }}">
+            <label class="custom-control-label text-dark"
+                for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+
+    <div class="upload-btn-wrapper">
+        <label class="rounded-2 btn-file btn-black p-2" for="new-image">
+            Select Image <input id="new-image" type="{{ widget.type }}"
+                name="{{ widget.name }}" class="d-none"
+                {% include "django/forms/widgets/attrs.html" %}>
+        </label>
+        <strong>
+            <p class="text-danger" id="filename"></p>
+        </strong>
+    </div>
+</div>
+
+<script>
+    // JavaScript to update filename text
+    document.getElementById('new-image').addEventListener('change',
+        function () {
+            var fileName = this.value.split('\\').pop();
+            document.getElementById('filename').textContent = fileName;
+        });
+</script>
