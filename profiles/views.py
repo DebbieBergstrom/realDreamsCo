@@ -20,6 +20,13 @@ def profile(request):
                 messages.success(
                     request, "Profile updated successfully", extra_tags="profile-update"
                 )
+            else:
+                messages.error(
+                    request,
+                    "Failed to update profile. Please check the form for errors.",
+                    extra_tags="profile-update-error",
+                )
+
         # Handle health status form submission
         elif "submit_health_status_form" in request.POST:
             health_status, _ = HealthStatus.objects.get_or_create(
@@ -33,6 +40,13 @@ def profile(request):
                     "Health status updated successfully",
                     extra_tags="health_status_update",
                 )
+            else:
+                messages.error(
+                    request,
+                    "Failed to update health status. Please check the form for errors.",
+                    extra_tags="health_status_update-error",
+                )
+
         return redirect(reverse("profile"))
     else:
         user_profile_form = UserProfileForm(instance=user_profile)
