@@ -62,18 +62,18 @@
     </section>
 
     <!-- Spacer DIV -->
-    <div class="spacer" style="height: 100vh;">
+    <div class="spacer" style="height: 80vh;">
         <!-- Scroll down arrow -->
         <div class="col-12 text-center">
-            <a href="#about_us" class="btn-scroll d-block d-md-none"
-                aria-label="Back to Top">
+            <a href="#about_us" class="btn-scroll d-block"
+                aria-label="Scroll Down">
                 <i class="fas fa-chevron-down fa-2x"></i>
             </a>
         </div>
     </div>
 
     <!-- Include ABOUT US-->
-    <section id="about_us" class="text-center bg-white pt-4 mt-5">
+    <section id="about_us" class="text-center bg-white pt-5 mb-3">
         <div class="container">
             <div class="row justify-content-center">
                 {% include 'includes/about_us.html' %}
@@ -82,8 +82,7 @@
 
     <!-- Back to Top Button -->
     <div class="col-12 text-center">
-        <a href="#top" class="btn-scroll d-block d-md-none"
-            aria-label="Back to Top">
+        <a href="#top" class="btn-scroll d-block" aria-label="Back to Top">
             <i class="fas fa-chevron-up fa-2x"></i>
         </a>
     </div>
@@ -98,7 +97,7 @@
         var button = document.getElementById("toggle-button");
 
         if (text.style.maxHeight === "200px") {
-            text.style.maxHeight = "none"; // No limit on height
+            text.style.maxHeight = "none";
             button.innerHTML = "Read Less";
         } else {
             text.style.maxHeight = "200px";

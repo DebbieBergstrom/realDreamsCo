@@ -349,6 +349,7 @@ h3 {
 
 .btn-scroll {
     animation: fade 1s ease-in-out 1s forwards;
+    opacity: 0;
     font-family: 'Poiret One', sans-serif;
     font-size: 1.5rem;
     color: var(--white);
@@ -380,12 +381,13 @@ h3 {
 /* ------------------------------------------ ABOUT US SECTION ***/
 
 #about_us {
+    margin-top: 25rem;
     -webkit-box-shadow: 2px 2px 15px 4px rgba(50, 48, 77, 0.9);
     box-shadow: 2px 2px 15px 4px rgba(50, 48, 77, 0.9);
 }
 
 .toggle-text {
-    max-height: 200px;
+    max-height: 290px;
     overflow: hidden;
 }
 
