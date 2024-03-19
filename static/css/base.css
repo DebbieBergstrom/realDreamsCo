@@ -321,7 +321,7 @@ h3 {
 
 /* home page banner section */
 #banner {
-    background-color: #253c7447;
+    background-color: #253c7475;
     opacity: 0;
     animation: fade 1s ease-in-out 1s forwards;
 }
@@ -346,6 +346,49 @@ h3 {
     color: var(--delft-blue);
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
+
+.btn-scroll {
+    animation: fade 1s ease-in-out 1s forwards;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 0.4rem;
+    margin: 0.1rem;
+    transition: transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.btn-scroll:hover,
+.btn-scroll:focus {
+    color: #cfcfce;
+    cursor: pointer;
+    border-radius: 50% / 50%;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.btn-scroll.active {
+    color: #cfcfce;
+    cursor: pointer;
+    border-radius: 50% / 50%;
+    text-decoration: none;
+    transform: scale(1.05);
+    animation: glow 3s infinite ease-in-out 1s forwards;
+}
+
+/* ------------------------------------------ ABOUT US SECTION ***/
+
+#about_us {
+    -webkit-box-shadow: 2px 2px 15px 4px rgba(50, 48, 77, 0.9);
+    box-shadow: 2px 2px 15px 4px rgba(50, 48, 77, 0.9);
+}
+
+.toggle-text {
+    max-height: 200px;
+    overflow: hidden;
+}
+
 
 /* ------------------------------------------BOOTSTRAP TOASTS ***/
 

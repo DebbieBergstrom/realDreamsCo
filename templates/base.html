@@ -177,7 +177,7 @@
     {% endblock %}
 
     <main class="flex-fill">
-        <div class="background-image-container" style="min-height: 100vh;">
+        <div class="background-image-container">
             {% block page_header %}
             <!-- Optional block for a page-specific header -->
             {% endblock %}
@@ -185,6 +185,7 @@
             {% block content %}
             <!-- MAIN CONTENT BLOCK to be overridden by child templates -->
             {% endblock %}
+            <div class="py-5"></div>
         </div>
         {% if messages %}
         <!-- Conditional block to display messages if they exist -->
@@ -205,7 +206,6 @@
         </div>
         {% endif %}
         </div>
-
     </main>
 
     {% block footer %}

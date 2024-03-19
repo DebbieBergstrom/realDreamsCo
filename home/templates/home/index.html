@@ -12,7 +12,7 @@
 {% block content %}
 <div class="container-fluid p-0">
     <!-- Slogan Section -->
-    <div class="container h-100 mb-5">
+    <div id="#top" class="container h-100 mb-5">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-12 col-md-10 text-center">
                 <h2 class="my-5 slogan fade-in-h2">
@@ -32,7 +32,7 @@
     </div>
 
     <!-- BANNER SECTION -->
-    <section id="banner" class="text-center py-4">
+    <section id="banner" class="text-center py-4 mb-5">
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Buttons -->
@@ -44,7 +44,7 @@
                     </p>
                 </div>
                 <div class="col-4 col-sm-3 col-md-2">
-                    <a href="#"
+                    <a href="#about_us"
                         class="btn btn-banner btn-block btn-sm p-0">About<br>
                         Us</a>
                     <p class="mt-1 banner-p">Learn more about our vision and
@@ -60,7 +60,50 @@
             </div>
         </div>
     </section>
+
+    <!-- Spacer DIV -->
+    <div class="spacer" style="height: 100vh;">
+        <!-- Scroll down arrow -->
+        <div class="col-12 text-center">
+            <a href="#about_us" class="btn-scroll d-block d-md-none"
+                aria-label="Back to Top">
+                <i class="fas fa-chevron-down fa-2x"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Include ABOUT US-->
+    <section id="about_us" class="text-center bg-white pt-4 mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                {% include 'includes/about_us.html' %}
+            </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="col-12 text-center">
+        <a href="#top" class="btn-scroll d-block d-md-none"
+            aria-label="Back to Top">
+            <i class="fas fa-chevron-up fa-2x"></i>
+        </a>
+    </div>
+
 </div>
+{% endblock %}
 
+{% block postloadjs %}
+<script type="text/javascript">
+    function toggleText() {
+        var text = document.getElementById("about-text");
+        var button = document.getElementById("toggle-button");
 
+        if (text.style.maxHeight === "200px") {
+            text.style.maxHeight = "none"; // No limit on height
+            button.innerHTML = "Read Less";
+        } else {
+            text.style.maxHeight = "200px";
+            button.innerHTML = "Read More";
+        }
+    }
+</script>
 {% endblock %}
