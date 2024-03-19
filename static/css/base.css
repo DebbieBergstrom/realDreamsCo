@@ -395,6 +395,22 @@ h3 {
     border-bottom-color: #343a40 !important;
 }
 
+/* ------------------------------------------ERROR PAGES***/
+
+.error-width {
+    max-width: 500px;
+    ;
+}
+
+.card-body {
+    padding: 1rem;
+    border-radius: 18px;
+    -webkit-box-shadow: 2px 2px 15px 4px rgba(50, 48, 77, 0.9);
+    box-shadow: 2px 2px 15px 4px rgba(50, 48, 77, 0.9);
+    border-radius: 18px;
+    background-color: #f7eefb54;
+}
+
 /* ------------------------------------------MEDIA QUERIES***/
 
 /* --- SMALL devices (landscape phones, 576px and up) --- */
