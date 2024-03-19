@@ -13,18 +13,36 @@
     --white: white;
 }
 
-html {
+/* ------------------------------------------HTML / BODY ***/
+
+html,
+body {
     height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-body.default-background {
-    background: url('/static/dreamy_pink_heaven.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(50vh - 164px);
-    color: white;
+.bg-footer {
+    background-color: #3a445d;
 }
 
+.background-image-container {
+    background: url('/static/dreamy_pink_heaven.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: calc(50vh - 164px);
+    color: white;
+}
 
 .overlay {
     height: 100%;

@@ -62,7 +62,7 @@
     <title>realDreams Co. {% block extra_title %}{% endblock %}</title>
 </head>
 
-<body class="{% block body_class %}default-background{% endblock %}">
+<body class="{% block body_class %}{% endblock %}">
     {% block header %}
     <header class="container-fluid fixed-top">
         <!-- Site-wide top header -->
@@ -176,31 +176,78 @@
     </header>
     {% endblock %}
 
-    {% if messages %}
-    <!-- Conditional block to display messages if they exist -->
-    <div class="message-container">
-        {% for message in messages %}
-        {% with message.level as level %}
-        {% if level == 40 %}
-        {% include 'includes/toasts/toast_error.html' %}
-        {% elif level == 30 %}
-        {% include 'includes/toasts/toast_warning.html' %}
-        {% elif level == 25 %}
-        {% include 'includes/toasts/toast_success.html' %}
-        {% else %}
-        {% include 'includes/toasts/toast_info.html' %}
+    <main class="flex-fill">
+        <div class="background-image-container" style="min-height: 100vh;">
+            {% block page_header %}
+            <!-- Optional block for a page-specific header -->
+            {% endblock %}
+
+            {% block content %}
+            <!-- MAIN CONTENT BLOCK to be overridden by child templates -->
+            {% endblock %}
+        </div>
+        {% if messages %}
+        <!-- Conditional block to display messages if they exist -->
+        <div class="message-container">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
         {% endif %}
-        {% endwith %}
-        {% endfor %}
-    </div>
-    {% endif %}
+        </div>
 
-    {% block page_header %}
-    <!-- Optional block for a page-specific header -->
-    {% endblock %}
+    </main>
 
-    {% block content %}
-    <!-- MAIN CONTENT BLOCK to be overridden by child templates -->
+    {% block footer %}
+    <footer class="bg-footer text-white py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-4 mb-1 text-center">
+                    <h5>realDreams</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Link 1</a></li>
+                        <li><a href="#" class="text-white">Link 2</a></li>
+                    </ul>
+                </div>
+                <div class="col-4 mb-1 text-center">
+                    <h5>About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Link 1</a></li>
+                        <li><a href="#" class="text-white">Link 2</a></li>
+                    </ul>
+                </div>
+                <div class="col-4 mb-1 text-center">
+                    <h5>Policy</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Link 1</a></li>
+                        <li><a href="#" class="text-white">Link 2</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-auto">
+                    <a href="#" class="text-white mr-2"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white mr-2"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white mr-2"><i
+                            class="fab fa-discord"></i></a>
+                    <a href="#" class="text-white"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
     {% endblock %}
 
     {% block postloadjs %}
@@ -211,9 +258,6 @@
         }).toast('show');
     </script>
     {% endblock %}
-
-
-
 
 </body>
 
