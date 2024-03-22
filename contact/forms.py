@@ -14,19 +14,19 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ["subject", "email", "phone_number", "message"]
         widgets = {
-            "subject": forms.Select(attrs={"class": "form-control m-0"}),
+            "subject": forms.Select(attrs={"class": "form-control mb-1"}),
             "email": forms.EmailInput(
                 attrs={"class": "form-control mb-2", "placeholder": "Email Address"}
             ),
             "phone_number": forms.TextInput(
                 attrs={
-                    "class": "form-control m-0",
+                    "class": "form-control mb-1",
                     "placeholder": "Phone Number (Optional)",
                 }
             ),
             "message": forms.Textarea(
                 attrs={
-                    "class": "form-control m-0",
+                    "class": "form-control mb-1",
                     "placeholder": "Write Your Message Here",
                     "rows": 2,
                 }
@@ -37,21 +37,8 @@ class ContactForm(forms.ModelForm):
         user = kwargs.pop("user", None)
         super(ContactForm, self).__init__(*args, **kwargs)
 
-        placeholders = {
-            "subject": "Choose Subject",
-            "email": "Email Address",
-            "phone_number": "Phone Number (Optional)",
-            "message": "Write Your Message Here",
-        }
-
-        self.fields["subject"].widget.attrs["autofocus"] = True
-
-        for field in self.fields:
-            if field in placeholders:
-                placeholder = placeholders[field]
-                self.fields[field].widget.attrs["placeholder"] = placeholder
-            self.fields[field].widget.attrs["class"] = "form-control"
-
-        # Pre-fill the email field if the user is logged in and it's a new instance
-        if user and not self.instance.pk:
+        if user and user.is_authenticated:
             self.fields["email"].initial = user.email
+
+        for field_name in self.fields:
+            self.fields[field_name].label = False
