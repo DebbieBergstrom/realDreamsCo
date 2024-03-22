@@ -13,13 +13,13 @@
 <div class="container-fluid p-0">
     <!-- Slogan Section -->
     <div id="#top" class="container mt-slogan h-100 mb-5">
-        <div class="row h-100 justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-10 text-center">
                 <h2 class="my-5 slogan fade-in-h2">
                     <span class="real-font-slogan mb-3 display-4">SAIL
                         the SEAS of FANTASY</span>
                 </h2>
-                <h3 class="fade-in-h2">
+                <h3 class="fade-in-h2 margin-extra-large">
                     <span class="real-font display-5">launch your </span>
                     <br>
                     <span class="real-font-slogan display-5">real</span>
@@ -32,27 +32,27 @@
     </div>
 
     <!-- BANNER SECTION -->
-    <section id="banner" class="text-center py-4 mb-5">
+    <section class="banner text-center py-4 my-5">
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Buttons -->
                 <div class="col-4 col-sm-3 col-md-2">
                     <a href="{% url 'products' %}"
-                        class="btn btn-banner btn-block btn-sm p-0">Discover<br>
+                        class="btn btn-banner btn-block p-0 text-uppercase">Discover<br>
                         Dreams</a>
                     <p class="mt-1 banner-p">Start your dream journey today!
                     </p>
                 </div>
                 <div class="col-4 col-sm-3 col-md-2">
-                    <a href="#about_us"
-                        class="btn btn-banner btn-block btn-sm p-0">About<br>
+                    <a href="#about_us" class="btn btn-banner btn-block p-0
+                        text-uppercase">About<br>
                         Us</a>
                     <p class="mt-1 banner-p">Learn more about our vision and
                         values</p>
                 </div>
                 <div class="col-4 col-sm-3 col-md-2">
-                    <a href="#"
-                        class="btn btn-banner btn-block btn-sm p-0">What's<br>
+                    <a href="#" class="btn btn-banner btn-block p-0
+                        text-uppercase">What's<br>
                         Up</a>
                     <p class="mt-1 banner-p">Stay updated with the latest news
                     </p>
@@ -62,9 +62,9 @@
     </section>
 
     <!-- Spacer DIV -->
-    <div class="spacer" style="height: 80vh;">
+    <div class="spacer" style="height: 20vh;">
         <!-- Scroll down arrow -->
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mb-5">
             <a href="#about_us" class="btn-scroll d-block"
                 aria-label="Scroll Down">
                 <i class="fas fa-chevron-down fa-2x"></i>
@@ -73,7 +73,7 @@
     </div>
 
     <!-- Include ABOUT US-->
-    <section id="about_us" class="text-center bg-white pt-5 mb-3">
+    <section id="about_us" class="text-center bg-white pt-5 mb-3 mt-5">
         <div class="container">
             <div class="row justify-content-center">
                 {% include 'includes/about_us.html' %}
@@ -81,11 +81,96 @@
     </section>
 
     <!-- Back to Top Button -->
-    <div class="col-12 text-center">
+    <div class="col-12 text-center mb-5">
         <a href="#top" class="btn-scroll d-block" aria-label="Back to Top">
             <i class="fas fa-chevron-up fa-2x"></i>
         </a>
     </div>
+
+    <!-- DREAM CENTERS SECTION -->
+    <section class="banner text-center py-4 mb-2">
+        <div class="container">
+            <h2 class="text-white my-4">Our realDream Centers</h2>
+            <div class="row justify-content-center">
+                <!-- Stockholm Center -->
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <div class="center-card mx-auto">
+                        <div>
+                            <img src="{% static 'stockholm.webp' %}"
+                                class="img-fluid rounded-circle center-img"
+                                alt="Stockholm Center">
+                            <div>
+                                <h3 class="center-title text-white pt-3">
+                                    Stockholm
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="center-info">
+                            <p class="center-text text-white">Our flagship
+                                center, pioneering the future of dream
+                                experiences.</p>
+                            <a href="https://maps.google.com/?q=Stockholm"
+                                class="btn btn-outline-light btn-sm"
+                                target="_blank">View on Map</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Berlin Center -->
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <div class="center-card mx-auto">
+                        <div>
+                            <img src="{% static 'berlin.webp' %}"
+                                class="img-fluid rounded-circle center-img"
+                                alt="Berlin Center">
+                            <div>
+                                <h3 class="center-title text-white pt-3">
+                                    Berlin
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="center-info">
+                            <p class="center-text text-white">Immerse yourself
+                                in the avant-garde scene of Berlin with our
+                                tailored dreams.</p>
+                            <a href="https://maps.google.com/?q=Berlin"
+                                class="btn btn-outline-light btn-sm"
+                                target="_blank">View on Map</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Paris Center -->
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <div class="center-card mx-auto">
+                        <div>
+                            <img src="{% static 'paris.webp' %}"
+                                class="img-fluid rounded-circle center-img"
+                                alt="Paris Center">
+                            <div>
+                                <h3 class="center-title text-white pt-3">Paris
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="center-info">
+                            <p class="center-text text-white">Dive into the
+                                elegance and romance of Paris in a dream unlike
+                                any other.</p>
+                            <a href="https://maps.google.com/?q=Paris"
+                                class="btn btn-outline-light btn-sm"
+                                target="_blank">View on Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="col-12 text-center mb-5">
+        <a href="#top" class="btn-scroll d-block" aria-label="Back to Top">
+            <i class="fas fa-chevron-up fa-2x"></i>
+        </a>
+    </div>
+
 
 </div>
 {% endblock %}
