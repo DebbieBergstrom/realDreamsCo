@@ -1,18 +1,18 @@
 from django.shortcuts import render, redirect
-from contact.forms import ContactForm
+from .forms import ContactForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 
-def landing_page(request):
-    """Render the landing page."""
-    return render(request, "home/landing_page.html")
-
-
-def index(request):
+def contact_view(request):
+    """Contact view that handles the ContactForm."""
     if request.method == "POST":
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
-            contact_form.save()
+            contact_instance = contact_form.save(commit=False)
+            if request.user.is_authenticated:
+                contact_instance.user = request.user
+            contact_instance.save()
             messages.success(request, "Thank you for contacting us!")
             return redirect("home")
     else:
@@ -21,4 +21,4 @@ def index(request):
     context = {
         "contact_form": contact_form,
     }
-    return render(request, "home/index.html", context)
+    return render(request, "contact/contact.html", context)
