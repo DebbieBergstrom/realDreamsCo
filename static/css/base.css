@@ -339,7 +339,7 @@ h3 {
 
 .banner-p {
     font-family: 'Roboto Condensed';
-    font-weight: 100;
+    font-weight: 200;
 }
 
 .btn-banner:hover {
@@ -592,11 +592,8 @@ h3 {
     }
 
     .slogan {
-        margin-top: 1rem;
-    }
-
-    .margin-extra-large {
-        margin: 0.1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .toggle-text {
