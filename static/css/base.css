@@ -298,7 +298,7 @@ h3 {
     line-height: 1.1;
     padding: 10px 0;
     font-size: 5rem;
-    margin-top: 8rem !important;
+    margin-top: 8rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -379,10 +379,14 @@ h3 {
 }
 
 /* ------------------------------------------ ABOUT US SECTION ***/
-
 #about_us {
+    margin-bottom: 16rem;
+}
+
+.about {
     -webkit-box-shadow: 2px 2px 15px 4px rgba(50, 48, 77, 0.9);
     box-shadow: 2px 2px 15px 4px rgba(50, 48, 77, 0.9);
+    min-height: calc(50vh - 164px);
 }
 
 .toggle-text {
@@ -567,7 +571,7 @@ h3 {
 /* --- LARGE devices (desktops, 992px and up) --- */
 @media (min-width: 992px) {
     html {
-        font-size: 18px;
+        font-size: 16px;
         /* Larger base font size for larger screens */
     }
 
@@ -586,12 +590,25 @@ h3 {
     .products-header {
         margin-top: 4rem !important;
     }
+
+    .slogan {
+        margin-top: 1rem;
+    }
+
+    .margin-extra-large {
+        margin: 0.1rem;
+    }
+
+    .toggle-text {
+        max-height: 200px;
+        overflow: hidden;
+    }
 }
 
 /* --- EXTRA LARGE devices (large desktops, 1200px and up) --- */
 @media (min-width: 1200px) {
     html {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     /* Slightly larger container on xl screens */
@@ -602,14 +619,19 @@ h3 {
 
 @media (min-width: 2100px) {
     html {
-        font-size: 24px;
+        font-size: 20px;
     }
 
-    .mt-slogan {
-        margin-top: 6rem;
+    .slogan {
+        margin-top: 7rem;
     }
 
     .margin-extra-large {
-        margin: 5rem;
+        margin: 1rem;
+    }
+
+    .toggle-text {
+        max-height: 450px;
+        overflow: hidden;
     }
 }
