@@ -35,7 +35,6 @@
     background-color: #20315e47;
     opacity: 0;
     animation: fade 1s ease-in-out 1s forwards;
-    border-radius: 55px;
 }
 
 .product-img-shadow {
@@ -193,4 +192,21 @@
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 0;
+}
+
+
+/* ------------------------------------------MEDIA QUERIES***/
+
+/* --- SMALL devices (landscape phones, up to 576px) --- */
+
+@media (max-width: 575.98px) {
+    .product-container .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .padding-sm {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
 }
