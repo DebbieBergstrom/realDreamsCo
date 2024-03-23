@@ -202,7 +202,7 @@
                         possible.</p>
                     <form method="post" action="">
                         {% csrf_token %}
-                        <div class="form-group text-muted text-left">
+                        <div class="form-group text-muted text-left small">
                             {{ contact_form|crispy }}
                         </div>
                         <button type="submit"

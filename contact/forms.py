@@ -14,7 +14,7 @@ class ContactForm(forms.ModelForm):
         queryset=DreamCenter.objects.all(),
         required=False,
         empty_label="Any Center",
-        widget=forms.Select(attrs={"class": "form-control text-dark"}),
+        widget=forms.Select(attrs={"class": "form-control mb-0 text-dark small"}),
         label="Select the center you wish to contact",
     )
 
@@ -26,22 +26,24 @@ class ContactForm(forms.ModelForm):
             "dream_center": "Select the center you wish to contact",
         }
         widgets = {
-            "subject": forms.Select(attrs={"class": "form-control mb-1 text-dark"}),
+            "subject": forms.Select(
+                attrs={"class": "form-control mb-0 text-dark small"}
+            ),
             "email": forms.EmailInput(
                 attrs={
-                    "class": "form-control mb-2 text-dark",
+                    "class": "form-control mb-0 text-dark small",
                     "placeholder": "Email Address",
                 }
             ),
             "phone_number": forms.TextInput(
                 attrs={
-                    "class": "form-control mb-1 text-dark",
+                    "class": "form-control mb-0 text-dark small",
                     "placeholder": "Phone Number (Optional)",
                 }
             ),
             "message": forms.Textarea(
                 attrs={
-                    "class": "form-control mb-1 text-dark",
+                    "class": "form-control mb-1 text-dark small",
                     "placeholder": "Write Your Message Here",
                     "rows": 3,
                 }
