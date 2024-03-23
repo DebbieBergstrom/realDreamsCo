@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contact
+from .models import Contact, DreamCenter
 
 
 class ContactForm(forms.ModelForm):
@@ -10,35 +10,52 @@ class ContactForm(forms.ModelForm):
     the user's email.
     """
 
+    dream_center = forms.ModelChoiceField(
+        queryset=DreamCenter.objects.all(),
+        required=False,
+        empty_label="Any Center",
+        widget=forms.Select(attrs={"class": "form-control text-dark"}),
+        label="Select the center you wish to contact",
+    )
+
     class Meta:
         model = Contact
-        fields = ["subject", "email", "phone_number", "message"]
+        fields = ["subject", "dream_center", "email", "phone_number", "message"]
+        labels = {
+            "subject": "Select Subject",
+            "dream_center": "Select the center you wish to contact",
+        }
         widgets = {
-            "subject": forms.Select(attrs={"class": "form-control mb-1"}),
+            "subject": forms.Select(attrs={"class": "form-control mb-1 text-dark"}),
             "email": forms.EmailInput(
-                attrs={"class": "form-control mb-2", "placeholder": "Email Address"}
+                attrs={
+                    "class": "form-control mb-2 text-dark",
+                    "placeholder": "Email Address",
+                }
             ),
             "phone_number": forms.TextInput(
                 attrs={
-                    "class": "form-control mb-1",
+                    "class": "form-control mb-1 text-dark",
                     "placeholder": "Phone Number (Optional)",
                 }
             ),
             "message": forms.Textarea(
                 attrs={
-                    "class": "form-control mb-1",
+                    "class": "form-control mb-1 text-dark",
                     "placeholder": "Write Your Message Here",
-                    "rows": 2,
+                    "rows": 3,
                 }
             ),
         }
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop("user", None)
-        super(ContactForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
+        # Pre-fill the email field if the user is authenticated
         if user and user.is_authenticated:
             self.fields["email"].initial = user.email
 
         for field_name in self.fields:
-            self.fields[field_name].label = False
+            if field_name not in ["subject", "dream_center"]:
+                self.fields[field_name].label = False
