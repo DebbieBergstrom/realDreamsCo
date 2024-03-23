@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Use the DEVELOPMENT environment variable to control the DEBUG setting
-DEBUG = os.environ.get("DEVELOPMENT", "False") == "True"
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "8000-debbiebergs-realdreamsc-xaty8v124z0.ws-eu110.gitpod.io",
