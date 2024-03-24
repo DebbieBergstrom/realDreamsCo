@@ -435,6 +435,15 @@ h3 {
     height: 16rem;
 }
 
+/* ------------------------------------------MAILCHIMP ***/
+
+#mc_embed_signup {
+    background: #333b50;
+    width: auto;
+    padding: 0.5rem;
+    margin: 10px;
+}
+
 /* ------------------------------------------BOOTSTRAP TOASTS ***/
 
 .message-container {
