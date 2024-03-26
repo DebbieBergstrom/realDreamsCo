@@ -27,3 +27,22 @@ def index(request):
 
     context = {"contact_form": contact_form}
     return render(request, "home/index.html", context)
+
+
+def faqs_view(request):
+    contact_form = ContactForm(
+        request.POST or None,
+        user=request.user if request.user.is_authenticated else None,
+    )
+
+    if request.method == "POST" and "contact_form" in request.POST:
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, "Thank you for contacting us!")
+            return redirect("faqs")
+
+    context = {
+        "contact_form": contact_form,
+    }
+
+    return render(request, "home/faqs.html", context)

@@ -444,6 +444,19 @@ h3 {
     margin: 10px;
 }
 
+.faqs-heading {
+    line-height: 1.1;
+    padding: 10px 0;
+    font-size: 3rem;
+    margin-top: 8rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.faqs-p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 /* ------------------------------------------BOOTSTRAP TOASTS ***/
 
 .message-container {
