@@ -186,7 +186,7 @@ User stories and tasks were put int o six 'epics' and are organized into four di
 Focuses on providing shoppers with a seamless browsing experience, ensuring they can easily explore and view realDream products and special offers. 
 - [View a list of realDream Products (MUST HAVE) #12](https://github.com/DebbieBergstrom/realDreamsCo/issues/12)
 - [View Detailed Dream Product Information (MUST HAVE) #13](https://github.com/DebbieBergstrom/realDreamsCo/issues/13)
-- [Easily Identify Special Offers (SHOULD HAVE) #14](https://github.com/DebbieBergstrom/realDreamsCo/issues/14)
+- [Easily Find and Read FAQs section (SHOULD HAVE) #14](https://github.com/DebbieBergstrom/realDreamsCo/issues/14)
 - [Purchase Total with Cart Icon (COULD HAVE) #51](https://github.com/issues/51)
 
 
@@ -197,7 +197,7 @@ Enables users to register, log in, and manage their profiles efficiently, enhanc
 - [Easy & Secure Login/Logout (MUST HAVE) #16](https://github.com/DebbieBergstrom/realDreamsCo/issues/16)
 - [User Password Recovery (SHOULD HAVE) #17](https://github.com/DebbieBergstrom/realDreamsCo/issues/17)
 - [Registration Email Confirmation (MUST HAVE) #18](https://github.com/DebbieBergstrom/realDreamsCo/issues/18)
-- [Update User Profile (SHOULD HAVE) #19](https://github.com/DebbieBergstrom/realDreamsCo/issues/19)
+- [Update User Profile & Health Status (SHOULD HAVE) #19](https://github.com/DebbieBergstrom/realDreamsCo/issues/19)
 - [View Order History (SHOULD HAVE) #20](https://github.com/DebbieBergstrom/realDreamsCo/issues/20)
 - [User Account Deletion (COULD HAVE) #21](https://github.com/DebbieBergstrom/realDreamsCo/issues/21)
 
@@ -211,7 +211,7 @@ Allows users to find their desired realDream experiences quickly by filtering an
 #### Epic 4: Purchasing & Checkout
 Covers the entire buying process, from selecting product variations to securely checking out, ensuring a smooth and secure transaction.
 
-- [Select Dream Product Size & Quantity (MUST HAVE) #34](https://github.com/DebbieBergstrom/realDreamsCo/issues/34)
+- [Select Dream Product Quantity (MUST HAVE) #34](https://github.com/DebbieBergstrom/realDreamsCo/issues/34)
 - [View Cart Content (MUST HAVE) #35](https://github.com/DebbieBergstrom/realDreamsCo/issues/35)
 - [Modify Cart Quantities (SHOULD HAVE) #36](https://github.com/DebbieBergstrom/realDreamsCo/issues/36)
 - [Secure & Efficient Checkout/Payment Processing (MUST HAVE) #37](https://github.com/DebbieBergstrom/realDreamsCo/issues/37)
@@ -224,10 +224,12 @@ Aims to create an aesthetically pleasing and intuitive interface that encourages
 - [Aesthetically Pleasing Website (SHOULD HAVE) #40](https://github.com/DebbieBergstrom/realDreamsCo/issues/40)
 - [Seamless & Intuitive Site Navigation (SHOULD HAVE) #41](https://github.com/DebbieBergstrom/realDreamsCo/issues/41)
 - [Social Media Accessibility (SHOULD HAVE) #42](https://github.com/DebbieBergstrom/realDreamsCo/issues/42)
-- [Form Access and Interaction Feedback (SHOULD HAVE) #43](https://github.com/DebbieBergstrom/realDreamsCo/issues/43)
+- [Messages Feedback for User Actions  (SHOULD HAVE) #43](https://github.com/DebbieBergstrom/realDreamsCo/issues/43)
 - [Policy Information Accessibility (MUST HAVE) #44](https://github.com/DebbieBergstrom/realDreamsCo/issues/44)
 - [Company About/Background section (SHOULD HAVE) #45](https://github.com/DebbieBergstrom/realDreamsCo/issues/45)
 - [Testimonials & Reviews Transparency (COULD HAVE) #46](https://github.com/DebbieBergstrom/realDreamsCo/issues/46)
+- [Receive Page Error Messages (SHOULD HAVE) #61](https://github.com/DebbieBergstrom/realDreamsCo/issues/61)
+- [Make contact through easy to find Contact Form (SHOULD HAVE) #62](https://github.com/DebbieBergstrom/realDreamsCo/issues/62)
 
 #### Epic 6: Admin and Store Management
 Provides the site's administrators with the tools they need to manage product listings, user feedback, and enhance the site's visibility through SEO practices. 
@@ -236,6 +238,7 @@ Provides the site's administrators with the tools they need to manage product li
 - [Admin - Edit/Update Product (MUST HAVE) #48](https://github.com/DebbieBergstrom/realDreamsCo/issues/48)
 - [Admin - Delete Product Items (MUST HAVE) #49](https://github.com/DebbieBergstrom/realDreamsCo/issues/49)
 - [Admin - SEO Enhancing Online Visibility (MUST HAVE) #50](https://github.com/issues/50)
+- [Admin - Customize Dream Products dashboard listing (COULD HAVE) #53](https://github.com/issues/53)
 
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
